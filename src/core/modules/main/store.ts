@@ -1,11 +1,13 @@
 import { Appearance, ModalRoute, PanelRoute, ViewRoute } from "core/models";
 import { createStore } from "effector";
 import {
+  checkTrainingEvent,
   setActiveModal,
   setActivePanel,
   setActiveView,
   setAppeareance,
   setFetching,
+  setHeight,
 } from "./events";
 
 type Store = {
@@ -14,6 +16,8 @@ type Store = {
   activeView: ViewRoute;
   activePanel: PanelRoute;
   activeModal: ModalRoute | null;
+  isCheckTraining: boolean;
+  height: number;
 };
 
 export const $main = createStore<Store>({
@@ -22,6 +26,8 @@ export const $main = createStore<Store>({
   activeView: ViewRoute.Main,
   activePanel: PanelRoute.Home,
   activeModal: null,
+  isCheckTraining: false,
+  height: window.innerHeight,
 })
   .on(setAppeareance, (state, appeareance) => ({
     ...state,
@@ -42,4 +48,12 @@ export const $main = createStore<Store>({
   .on(setActiveModal, (state, activeModal) => ({
     ...state,
     activeModal,
+  }))
+  .on(checkTrainingEvent, (state) => ({
+    ...state,
+    isCheckTraining: true,
+  }))
+  .on(setHeight, (state, height) => ({
+    ...state,
+    height,
   }));

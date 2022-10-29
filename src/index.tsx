@@ -1,8 +1,8 @@
-import "core/operations/initVKBridge";
-import ReactDOM from "react-dom/client";
+import "core/vk-bridge/init";
+import { createRoot } from "react-dom/client";
 import { App } from "./App";
 
-const root = ReactDOM.createRoot(document.getElementById("root")!);
+const root = createRoot(document.getElementById("root")!);
 root.render(<App />);
 if (process.env.NODE_ENV === "development") {
   import("./eruda").then(({ default: eruda }) => {}); //runtime download
