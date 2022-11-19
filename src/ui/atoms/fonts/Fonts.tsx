@@ -24,7 +24,7 @@ const createFont = (fontFamily: string) => {
         <span
           data-testid={dataTestId ?? fontFamily}
           className={className}
-          style={{ fontSize, color, letterSpacing, fontFamily }}
+          style={{ fontSize, color, lineHeight, letterSpacing, fontFamily }}
         >
           {children}
         </span>
