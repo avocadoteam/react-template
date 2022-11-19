@@ -1,0 +1,11 @@
+.icon_button {
+  transition: all 400ms 100ms ease;
+}
+.icon_button:hover {
+  filter: brightness(95%);
+  transition: all 200ms 100ms ease;
+}
+.icon_button:active {
+  filter: brightness(97%);
+  transition: all 200ms 100ms ease;
+}

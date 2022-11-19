@@ -1,0 +1,12 @@
+.clickable_div {
+  transition: filter 400ms 100ms ease;
+}
+.clickable_div:hover {
+  filter: brightness(95%);
+  transition: filter 200ms 100ms ease;
+}
+
+.clickable_div:active {
+  filter: brightness(96%);
+  transition: filter 200ms 100ms ease;
+}

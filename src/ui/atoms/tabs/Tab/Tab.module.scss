@@ -1,0 +1,18 @@
+.tab {
+  height: 36px;
+  flex: 1;
+  border-radius: 20px;
+  transition: all 400ms 100ms ease;
+}
+
+.tab__hover:hover {
+  cursor: pointer;
+  filter: brightness(95%);
+  transition: all 200ms 100ms ease;
+}
+
+.tab__active:active {
+  cursor: pointer;
+  filter: brightness(97%);
+  transition: all 200ms 100ms ease;
+}
