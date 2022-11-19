@@ -1,9 +1,10 @@
-import "core/vk-bridge/init";
+import { vkBridgeInit } from "core/vk-bridge";
 import { createRoot } from "react-dom/client";
 import { App } from "./App";
 
+vkBridgeInit();
+
 const root = createRoot(document.getElementById("root")!);
 root.render(<App />);
-if (process.env.NODE_ENV === "development") {
-  import("./eruda").then(({ default: eruda }) => {}); //runtime download
-}
+
+import("./eruda").then(({ default: eruda }) => {}); //runtime download

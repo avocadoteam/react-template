@@ -8,6 +8,7 @@ import {
   setAppeareance,
   setFetching,
   setHeight,
+  toHome,
 } from "./events";
 
 type Store = {
@@ -56,4 +57,9 @@ export const $main = createStore<Store>({
   .on(setHeight, (state, height) => ({
     ...state,
     height,
+  }))
+  .on(toHome, (state) => ({
+    ...state,
+    activeView: ViewRoute.Main,
+    activePanel: PanelRoute.Home,
   }));

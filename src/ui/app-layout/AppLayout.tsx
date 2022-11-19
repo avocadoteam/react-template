@@ -8,11 +8,11 @@ export const AppLayout = memo(() => {
 
   return (
     <AppRoot>
-      <Root activeView={activeView}>
-        <SplitLayout>
-          <SplitCol></SplitCol>
-        </SplitLayout>
-      </Root>
+      <SplitLayout>
+        <SplitCol animate>
+          <Root activeView={activeView}></Root>
+        </SplitCol>
+      </SplitLayout>
     </AppRoot>
   );
 });

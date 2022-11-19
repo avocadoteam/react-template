@@ -1,8 +1,12 @@
 import React from "react";
 
-const light = {};
+const light = {
+  appBg: "#fff",
+};
 
-const dark: typeof light = {};
+const dark: typeof light = {
+  appBg: "#202020",
+};
 
 export const theme = {
   light,
