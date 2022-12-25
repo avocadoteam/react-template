@@ -1,69 +1,57 @@
 {
   "name": "mini-app",
   "version": "0.0.0",
+  "homepage": "./",
   "scripts": {
-    "start": "cross-env GENERATE_SOURCEMAP=false && react-scripts build —nomaps && rimraf build/**/*.map",
-    "build": "react-scripts build",
-    "predeploy": "npm run build",
+    "dev": "vite",
+    "build": "tsc && cross-env GENERATE_SOURCEMAP=false && vite build —nomaps && rimraf build/**/*.map",
+    "preview": "vite preview",
+    "predeploy": "pnpm build",
     "deploy": "vk-miniapps-deploy",
     "test": "jest --env=jsdom --watch-all"
   },
-  "engines": {
-    "node": ">=12.0.0"
-  },
-  "keywords": [],
   "license": "MIT",
   "dependencies": {
     "@testing-library/react": "^13.4.0",
-    "@vkontakte/icons": "1.141.1",
-    "@vkontakte/vk-bridge": "latest",
-    "@vkontakte/vk-miniapps-deploy": "0.0.25",
-    "@vkontakte/vkjs": "0.20.0",
-    "@vkontakte/vkui": "4.28.1",
+    "@vanilla-extract/css": "^1.9.0",
+    "@vanilla-extract/recipes": "^0.2.5",
+    "@vanilla-extract/sprinkles": "^1.5.0",
+    "@vanilla-extract/vite-plugin": "^3.5.0",
+    "@vkontakte/icons": "^2.3.0",
+    "@vkontakte/vk-bridge": "^2.7.2",
+    "@vkontakte/vk-miniapps-deploy": "^0.0.26",
+    "@vkontakte/vkui": "^5.0.2",
+    "axios": "^0.27.2",
     "babel-eslint": "^10.1.0",
     "babel-plugin-module-resolver": "^4.1.0",
     "effector": "^22.3.0",
-    "effector-react": "^22.3.3",
-    "eruda": "^2.4.1",
+    "effector-react": "^22.2.0",
+    "eruda": "^2.5.0",
     "eruda-code": "^2.0.0",
     "eruda-dom": "^2.0.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^26.6.0",
     "jest-cli": "^29.2.2",
     "node-sass": "^8.0.0",
-    "prop-types": "^15.7.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-intersection-observer": "^9.4.1",
     "typescript": "^4.8.4"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.19.4",
     "@testing-library/jest-dom": "^5.16.5",
     "@types/jest": "^29.2.0",
-    "@types/react": "^18.0.21",
+    "@types/node": "^18.7.18",
+    "@types/react": "^18.0.20",
     "@types/react-dom": "^18.0.6",
+    "@vitejs/plugin-react": "^2.1.0",
     "cross-env": "^7.0.3",
+    "effector-logger": "^0.13.4",
     "jest-environment-jsdom": "^29.2.2",
-    "react-hot-loader": "^4.13.0",
-    "react-scripts": "^4.0.3"
-  },
-  "resolutions": {
-    "react-scripts/webpack-dev-server/yargs/yargs-parser": ">=18.1.2"
-  },
-  "overrides": {
-    "es5-ext@^0.10.50": "0.10.53"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "prettier": "^2.7.1",
+    "typescript": "^4.8.3",
+    "vite": "^3.1.1"
   },
   "eslintConfig": {
     "extends": [

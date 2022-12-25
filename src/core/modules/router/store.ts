@@ -1,11 +1,6 @@
-import { ModalRoute, PanelRoute, PopoutRoute, ViewRoute } from "core/models";
-import { createStore } from "effector";
-import {
-  setActiveModal,
-  setActivePanel,
-  setActivePopout,
-  setActiveView,
-} from "./event";
+import { ModalRoute, PanelRoute, PopoutRoute, ViewRoute } from '@core/models';
+import { createStore } from 'effector';
+import { setActiveModal, setActivePanel, setActivePopout, setActiveView } from './event';
 
 type Store = {
   activeView: ViewRoute;

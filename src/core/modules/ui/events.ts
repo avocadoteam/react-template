@@ -1,6 +1,6 @@
-import { Appearance } from "@vkontakte/vkui";
-import { Snackbar } from "core/models";
-import { createEvent } from "effector";
+import { Snackbar } from '@core/models';
+import { Appearance } from '@vkontakte/vkui';
+import { createEvent } from 'effector';
 
 export const setHeight = createEvent<number>();
 export const setAppearance = createEvent<Appearance>();

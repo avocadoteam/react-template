@@ -1,6 +1,6 @@
-import { ThemeContext } from "core/contexts"
-import { useContext } from "react"
+import { ThemeContext } from '@core/contexts';
+import { useContext } from 'react';
 
 export const useTheme = () => {
-    return useContext(ThemeContext)
-}
+  return useContext(ThemeContext);
+};

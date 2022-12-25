@@ -4,7 +4,7 @@
   align-items: center;
 }
 
-.customized_cell {
+.custom_cell {
   @extend %flex-row;
   &__space_between {
     @extend %flex-row;
@@ -12,16 +12,16 @@
     justify-content: space-between;
   }
 }
-.customized_cell__clickable {
+.custom_cell__clickable {
   cursor: pointer;
   transition: filter 400ms 100ms ease;
 }
-.customized_cell__clickable:hover {
+.custom_cell__clickable:hover {
   filter: brightness(95%);
   transition: filter 200ms 100ms ease;
 }
 
-.customized_cell__clickable:active {
+.custom_cell__clickable:active {
   filter: brightness(96%);
   transition: filter 200ms 100ms ease;
 }

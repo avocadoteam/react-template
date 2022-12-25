@@ -1,1 +1,1 @@
-export * from "./CustomizedPanel";
+export * from './CustomPanel';

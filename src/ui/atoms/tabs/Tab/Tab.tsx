@@ -1,8 +1,7 @@
-import { useTheme } from "core/hooks";
-import { memo } from "react";
-import { DivCenter } from "ui/atoms/div-center";
-import { TextSFProRoundedMedium } from "ui/atoms/fonts";
-import styles from "./Tab.module.scss";
+import { useTheme } from '@core/hooks';
+import { DivCenter, TextSFProRoundedMedium } from '@ui/atoms';
+import { memo } from 'react';
+import styles from './Tab.module.scss';
 
 type Props = {
   isActive: boolean;
@@ -30,11 +29,7 @@ const TabDefault = memo<PropsDefault>(({ children, onClick }) => {
       style={{ background: theme.background }}
       className={`${styles.tab} ${styles.tab__hover} ${styles.tab__active}`}
     >
-      <TextSFProRoundedMedium
-        color={theme.text}
-        fontSize={17}
-        letterSpacing={0.5}
-      >
+      <TextSFProRoundedMedium color={theme.text} fontSize={17} letterSpacing={0.5}>
         {children}
       </TextSFProRoundedMedium>
     </DivCenter>
@@ -49,11 +44,7 @@ const TabActive = memo<PropsActive>(({ children }) => {
   const theme = useTheme().tab.active;
   return (
     <DivCenter style={{ background: theme.background }} className={styles.tab}>
-      <TextSFProRoundedMedium
-        color={theme.text}
-        fontSize={17}
-        letterSpacing={0.5}
-      >
+      <TextSFProRoundedMedium color={theme.text} fontSize={17} letterSpacing={0.5}>
         {children}
       </TextSFProRoundedMedium>
     </DivCenter>

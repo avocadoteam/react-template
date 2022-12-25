@@ -1,10 +1,9 @@
-import { AppRoot, Root, SplitCol, SplitLayout } from "@vkontakte/vkui";
-import { $main } from "core/modules/main";
-import { useStore } from "effector-react";
-import { memo } from "react";
+import { useRouter } from '@core/hooks';
+import { AppRoot, Root, SplitCol, SplitLayout } from '@vkontakte/vkui';
+import { memo } from 'react';
 
 export const AppLayout = memo(() => {
-  const { activeView } = useStore($main);
+  const { activeView } = useRouter();
 
   return (
     <AppRoot>
