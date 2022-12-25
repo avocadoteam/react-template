@@ -1,5 +1,6 @@
 import { useTheme } from '@core/hooks';
 import { ModalRoute } from '@core/models';
+import { back } from '@core/modules/router';
 import { Icon24Dismiss } from '@vkontakte/icons';
 import { ModalPage, ModalPageHeader, PanelHeaderButton, PanelHeaderClose, Platform, usePlatform } from '@vkontakte/vkui';
 import { memo, useCallback } from 'react';
@@ -13,7 +14,7 @@ export const CustomModalPage = memo<Props>(({ id, children }) => {
   const theme = useTheme();
   const platform = usePlatform();
   const handleClose = useCallback(() => {
-    window.history.back();
+    back();
   }, []);
 
   return (

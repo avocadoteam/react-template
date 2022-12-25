@@ -3,13 +3,14 @@ import '@vkontakte/vkui/dist/vkui.css';
 import './App.css';
 
 import { ThemeContext, theme } from '@core/contexts';
-import { useEventListener, useInitRouter } from '@core/hooks';
+import { useConnection, useEventListener, useInitRouter } from '@core/hooks';
 import { $ui, setHeight } from '@core/modules/ui';
 import { AppLayout } from '@ui/app-layout/AppLayout';
 import { useStore } from 'effector-react';
 
 export const App = () => {
   useInitRouter();
+  useConnection();
   useEventListener('resize', () => setHeight(window.innerHeight));
   const { appearance } = useStore($ui);
 
