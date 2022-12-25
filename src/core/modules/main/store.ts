@@ -1,65 +1,26 @@
-import { Appearance, ModalRoute, PanelRoute, ViewRoute } from "core/models";
 import { createStore } from "effector";
-import {
-  checkTrainingEvent,
-  setActiveModal,
-  setActivePanel,
-  setActiveView,
-  setAppeareance,
-  setFetching,
-  setHeight,
-  toHome,
-} from "./events";
+import { checkOnboardingEvent, setAppInit, setFetching } from "./events";
 
 type Store = {
-  appeareance: Appearance;
+  isAppInit: boolean;
   isFetching: boolean;
-  activeView: ViewRoute;
-  activePanel: PanelRoute;
-  activeModal: ModalRoute | null;
-  isCheckTraining: boolean;
-  height: number;
+  isCheckOnboarding: boolean;
 };
 
 export const $main = createStore<Store>({
-  appeareance: "light",
+  isAppInit: false,
   isFetching: false,
-  activeView: ViewRoute.Main,
-  activePanel: PanelRoute.Home,
-  activeModal: null,
-  isCheckTraining: false,
-  height: window.innerHeight,
+  isCheckOnboarding: false,
 })
-  .on(setAppeareance, (state, appeareance) => ({
+  .on(setAppInit, (state, isAppInit) => ({
     ...state,
-    appeareance,
+    isAppInit,
   }))
   .on(setFetching, (state, isFetching) => ({
     ...state,
     isFetching,
   }))
-  .on(setActiveView, (state, activeView) => ({
-    ...state,
-    activeView,
-  }))
-  .on(setActivePanel, (state, activePanel) => ({
-    ...state,
-    activePanel,
-  }))
-  .on(setActiveModal, (state, activeModal) => ({
-    ...state,
-    activeModal,
-  }))
-  .on(checkTrainingEvent, (state) => ({
+  .on(checkOnboardingEvent, (state) => ({
     ...state,
     isCheckTraining: true,
-  }))
-  .on(setHeight, (state, height) => ({
-    ...state,
-    height,
-  }))
-  .on(toHome, (state) => ({
-    ...state,
-    activeView: ViewRoute.Main,
-    activePanel: PanelRoute.Home,
   }));

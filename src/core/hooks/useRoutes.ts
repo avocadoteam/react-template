@@ -1,25 +1,51 @@
-import { PanelRoute, ViewRoute } from "core/models";
-import { $main, setActivePanel } from "core/modules/main";
+import { ModalRoute, PanelRoute, ViewRoute } from "core/models";
+import {
+  $router,
+  setActiveModal,
+  setActivePanel,
+  setActiveView,
+} from "core/modules/router";
+import { vkBridge } from "core/vk-bridge";
 import { useStore } from "effector-react";
 import { useCallback, useEffect } from "react";
 import { useEventListener } from "./useEventListener";
 
-export const useRoutes = () => {
-  const { activeView, activePanel } = useStore($main);
+export const useInitRouter = () => {
+  const { activeView, activePanel, activeModal } = useRouter();
   useEffect(() => {
-    window.location.assign(`#${activeView}/${activePanel}`);
-  }, [activeView, activePanel]);
+    window.location.assign(`#${activeView}/${activePanel}/${activeModal}`);
+  }, [activeView, activePanel, activeModal]);
   const handleHashChange = useCallback(() => {
-    const [view, panel] = window.location.hash.slice(1).split("/");
+    const hash = window.location.hash;
+    const [view, panel, modal] = hash.slice(1).split("/");
+    console.log("prevRoutes", activeView, activePanel, activeModal);
+    console.log("nextRoutes", view, panel, modal);
+
+    if (activePanel === PanelRoute.Home && activePanel !== panel) {
+      console.log("start close app");
+      vkBridge
+        .send("VKWebAppClose", { status: "success" })
+        .then(() => console.log("app closed"))
+        .catch((e: any) => console.log("failed to close, vk bridge error:", e));
+      return;
+    }
     if (view && panel && navigator.onLine) {
+      setActiveModal(
+        modal === "null" ? null : (modal as unknown as ModalRoute)
+      );
       setActiveView(view as unknown as ViewRoute);
       setActivePanel(panel as unknown as PanelRoute);
+    } else {
+      window.location.assign(`#${activeView}/${activePanel}/null`);
     }
-  }, [activeView]);
-  useEventListener("hashchange", handleHashChange);
+  }, [activeView, activePanel, activeModal]);
+  useEventListener("hashchange", handleHashChange, [
+    activeView,
+    activePanel,
+    activeModal,
+  ]);
+};
 
-  const handleOnline = useCallback(() => {
-    toHome();
-  }, []);
-  useEventListener("online", handleOnline);
+export const useRouter = () => {
+  return useStore($router);
 };

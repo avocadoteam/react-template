@@ -34,7 +34,7 @@ export const getStorage = async (keys: string[]) => {
     .then((res) => res.keys)
     .catch((e) => {
       console.log("vkBridge get storage failed: ", e);
-      return [{ key: StorageKey.IsCheckTraining, value: "true" }];
+      return [{ key: StorageKey.IsCheckOnboarding, value: "true" }];
     });
 };
 
