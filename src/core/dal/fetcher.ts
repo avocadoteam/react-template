@@ -1,10 +1,10 @@
+import { fetcherBaseUrl, vkQuery } from '@core/constants';
 import { ApiRequest } from '@core/models';
 import { setSnackbar } from '@core/modules/ui';
 import axios from 'axios';
-import { vkQuery } from './vkQuery';
 
 export const AX = axios.create({
-  baseURL: 'https://',
+  baseURL: fetcherBaseUrl,
 });
 
 type Config<ResponseData, ReturnData> = {
