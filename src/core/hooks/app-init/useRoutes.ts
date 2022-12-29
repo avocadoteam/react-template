@@ -3,7 +3,7 @@ import { $router, setActiveModal, setActivePanel, setActivePopout, setActiveView
 import { vkBridge } from '@core/vk-bridge';
 import { useStore } from 'effector-react';
 import { useCallback, useEffect } from 'react';
-import { useEventListener } from './useEventListener';
+import { useEventListener } from '../useEventListener';
 
 export const useInitRouter = (...middlewares: RouteMiddleware[]) => {
   const { activeView, activePanel, activeModal, activePopout } = useRouter();

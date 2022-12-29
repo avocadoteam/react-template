@@ -1,7 +1,7 @@
-import { Snackbar } from '@core/models';
+import { Dimensions, Snackbar } from '@core/models';
 import { Appearance } from '@vkontakte/vkui';
 import { createEvent } from 'effector';
 
-export const setHeight = createEvent<number>();
+export const setDimensions = createEvent<Dimensions>();
 export const setAppearance = createEvent<Appearance>();
 export const setSnackbar = createEvent<Snackbar | null>();

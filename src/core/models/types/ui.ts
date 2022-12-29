@@ -11,3 +11,8 @@ export type Tab = {
   title: string;
   value: any;
 };
+
+export type Dimensions = {
+  width: number;
+  height: number;
+};

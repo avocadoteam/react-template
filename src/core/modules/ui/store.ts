@@ -1,17 +1,20 @@
-import { Appearance, Snackbar } from '@core/models';
+import { Appearance, Dimensions, Snackbar } from '@core/models';
 import { createStore } from 'effector';
-import { setAppearance, setHeight, setSnackbar } from './events';
+import { setAppearance, setDimensions, setSnackbar } from './events';
 
 type Store = {
   snackbar: Snackbar | null;
   appearance: Appearance;
-  height: number;
+  dimensions: Dimensions;
 };
 
 export const $ui = createStore<Store>({
   snackbar: null,
   appearance: 'light',
-  height: window.innerHeight,
+  dimensions: {
+    width: window.innerWidth,
+    height: window.innerHeight,
+  },
 })
   .on(setSnackbar, (state, snackbar) => ({
     ...state,
@@ -21,7 +24,9 @@ export const $ui = createStore<Store>({
     ...state,
     appearance,
   }))
-  .on(setHeight, (state, height) => ({
+  .on(setDimensions, (state, dimensions) => ({
     ...state,
-    height,
+    dimensions: {
+      ...dimensions,
+    },
   }));

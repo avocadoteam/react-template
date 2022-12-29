@@ -1,25 +1,19 @@
+import { useAppInit } from '@core/hooks';
+import { $ui } from '@core/modules/ui';
+import { AppLayout } from '@ui/app-layout/AppLayout';
+import '@ui/theme/fonts.css';
 import { AdaptivityProvider, ConfigProvider } from '@vkontakte/vkui';
 import '@vkontakte/vkui/dist/vkui.css';
-import './App.css';
-
-import { ThemeContext, theme } from '@core/contexts';
-import { useConnection, useEventListener, useInitRouter } from '@core/hooks';
-import { $ui, setHeight } from '@core/modules/ui';
-import { AppLayout } from '@ui/app-layout/AppLayout';
 import { useStore } from 'effector-react';
 
 export const App = () => {
-  useInitRouter();
-  useConnection();
-  useEventListener('resize', () => setHeight(window.innerHeight));
+  useAppInit();
   const { appearance } = useStore($ui);
 
   return (
     <ConfigProvider appearance={appearance}>
       <AdaptivityProvider>
-        <ThemeContext.Provider value={theme[appearance]}>
-          <AppLayout />
-        </ThemeContext.Provider>
+        <AppLayout />
       </AdaptivityProvider>
     </ConfigProvider>
   );

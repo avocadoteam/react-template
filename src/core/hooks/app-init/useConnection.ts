@@ -1,7 +1,7 @@
 import { PanelRoute, ViewRoute } from '@core/models';
 import { setActivePanel, setActiveView } from '@core/modules/router';
 import { useCallback } from 'react';
-import { useEventListener } from './useEventListener';
+import { useEventListener } from '../useEventListener';
 
 export const useConnection = () => {
   const handleOffline = useCallback(() => {
