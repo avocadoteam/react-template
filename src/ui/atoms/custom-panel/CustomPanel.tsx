@@ -1,4 +1,3 @@
-import { useTheme } from '@core/hooks';
 import { PanelRoute } from '@core/models';
 import { $ui } from '@core/modules/ui';
 import { Panel } from '@vkontakte/vkui';
@@ -13,16 +12,14 @@ type Props = {
 };
 
 export const CustomPanel = memo<Props>(({ id, className, style, children }) => {
-  const theme = useTheme();
-  const { height } = useStore($ui);
+  const { dimensions } = useStore($ui);
 
   return (
     <Panel id={id}>
       <div
         className={className}
         style={{
-          background: theme.appBg,
-          minHeight: height,
+          minHeight: dimensions.height,
           ...style,
         }}
       >

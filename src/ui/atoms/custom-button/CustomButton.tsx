@@ -1,10 +1,10 @@
-import { TextSFProRoundedMedium } from '@ui/atoms';
+import { typography } from '@ui/theme/typography.css';
 import { Button } from '@vkontakte/vkui';
 import { memo } from 'react';
 import { btn } from './CustomButton.css';
 
 type Props = {
-  type: 'primary' | 'transparent' | 'negative';
+  type?: 'primary' | 'transparent' | 'negative';
   children: React.ReactNode;
   dataTestId?: string;
   disabled?: boolean;
@@ -15,10 +15,13 @@ export const CustomButton = memo<Props>(({ type, disabled, children, dataTestId,
   const testId = dataTestId ?? 'customized-button';
 
   return (
-    <Button disabled={disabled} onClick={onClick} data-testid={testId} className={btn({ type })}>
-      <TextSFProRoundedMedium dataTestId={`${testId}-text`} letterSpacing={0.5} lineHeight={20} fontSize={17}>
-        {children}
-      </TextSFProRoundedMedium>
+    <Button
+      disabled={disabled}
+      onClick={onClick}
+      data-testid={testId}
+      className={`${btn({ type })} ${typography({ variant: 'btn' })}`}
+    >
+      {children}
     </Button>
   );
 });

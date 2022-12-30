@@ -1,34 +1,17 @@
-import { useTheme } from '@core/hooks';
 import { memo } from 'react';
-import styles from './IconButton.module.scss';
+import { ClickableDiv } from '../clickable-div';
+import { iconButton } from './IconButton.css';
 
 type Props = {
+  type?: 'primary' | 'transparent' | 'negative';
   children: React.ReactNode;
   onClick: () => void;
 };
 
-export const IconButton = memo<Props>(({ children, onClick }) => {
-  const theme = useTheme();
-
+export const IconButton = memo<Props>(({ children, type, onClick }) => {
   return (
-    <button
-      onClick={onClick}
-      className={styles.icon_button}
-      style={{
-        width: 50,
-        height: 50,
-        background: theme.btn.primary.background,
-        color: theme.btn.primary.color,
-        borderRadius: 20,
-        border: 'none',
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center',
-        cursor: 'pointer',
-      }}
-    >
+    <ClickableDiv onClick={onClick} className={iconButton({ type })}>
       {children}
-    </button>
+    </ClickableDiv>
   );
 });

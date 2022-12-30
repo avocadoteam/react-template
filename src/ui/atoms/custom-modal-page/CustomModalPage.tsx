@@ -1,4 +1,3 @@
-import { useTheme } from '@core/hooks';
 import { ModalRoute } from '@core/models';
 import { back } from '@core/modules/router';
 import { Icon24Dismiss } from '@vkontakte/icons';
@@ -11,7 +10,6 @@ type Props = {
 };
 
 export const CustomModalPage = memo<Props>(({ id, children }) => {
-  const theme = useTheme();
   const platform = usePlatform();
   const handleClose = useCallback(() => {
     back();
@@ -36,7 +34,7 @@ export const CustomModalPage = memo<Props>(({ id, children }) => {
         />
       }
     >
-      <div style={{ background: theme.appBg }}>{children}</div>
+      {children}
     </ModalPage>
   );
 });

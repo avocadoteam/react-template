@@ -7,6 +7,23 @@ export const typography = recipe({
     margin: 0,
   },
   variants: {
+    fontFamily: vars.fonts,
+    variant: {
+      btn: {
+        fontSize: '17px',
+        letterSpacing: '0.5px',
+        fontWeight: 500,
+      },
+      tab: {
+        fontSize: '17px',
+        letterSpacing: '0.5px',
+        fontWeight: 500,
+      },
+      snackbar: {
+        fontSize: '15px',
+        fontWeight: 500,
+      },
+    },
     weight: {
       thin: {
         fontWeight: 100,

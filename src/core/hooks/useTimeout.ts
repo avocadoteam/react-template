@@ -1,10 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
-export const useTimeout = (
-  callback: () => void,
-  delay: number,
-  deps?: any[]
-) => {
+export const useTimeout = (callback: () => void, delay: number, deps?: any[]) => {
   const [timerId, setTimerId] = useState<any>(null);
   useEffect(
     () => {
@@ -13,13 +9,13 @@ export const useTimeout = (
         setTimeout(() => {
           callback();
           clearTimeout(timerId);
-        }, delay)
+        }, delay),
       );
 
       return () => {
         clearTimeout(timerId);
       };
     },
-    deps ? [delay, ...deps] : [delay]
+    deps ? [delay, ...deps] : [delay],
   );
 };

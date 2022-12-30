@@ -1,6 +1,6 @@
 import { recipe } from '@vanilla-extract/recipes';
 
-export const styles = recipe({
+export const clickableDiv = recipe({
   variants: {
     clickable: {
       true: {

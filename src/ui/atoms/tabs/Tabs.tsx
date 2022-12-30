@@ -1,7 +1,7 @@
 import { Tab as TabType } from '@core/models';
 import { memo } from 'react';
 import { Tab } from './Tab';
-import styles from './Tabs.module.scss';
+import { tabs as tabsStyle } from './Tabs.css';
 
 type Props = {
   onClick: (tab: TabType) => void;
@@ -11,7 +11,7 @@ type Props = {
 
 export const Tabs = memo<Props>(({ onClick, tabs, activeTab }) => {
   return (
-    <div className={styles.tabs}>
+    <div className={tabsStyle}>
       {tabs.map(t => (
         <Tab isActive={t.title === activeTab.title} onClick={() => onClick(t)} key={t.title}>
           {t.title}

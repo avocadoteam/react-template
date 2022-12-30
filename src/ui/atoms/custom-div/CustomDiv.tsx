@@ -1,5 +1,6 @@
-import { useTheme } from '@core/hooks';
 import { memo } from 'react';
+import { ClickableDiv } from '../clickable-div';
+import { customDiv } from './CustomDiv.css';
 
 type Props = {
   onClick?: () => void;
@@ -9,18 +10,9 @@ type Props = {
 };
 
 export const CustomDiv = memo<Props>(({ onClick, className, style, children }) => {
-  const theme = useTheme();
   return (
-    <div
-      onClick={onClick}
-      className={className}
-      style={{
-        background: theme.customDivBg,
-        borderRadius: 20,
-        ...style,
-      }}
-    >
+    <ClickableDiv onClick={onClick} className={`${customDiv} ${className}`} style={style}>
       {children}
-    </div>
+    </ClickableDiv>
   );
 });

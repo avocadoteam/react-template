@@ -1,12 +1,17 @@
 import { vars } from '@ui/theme/theme.css';
 import { recipe } from '@vanilla-extract/recipes';
 
-export const btn = recipe({
+export const iconButton = recipe({
   base: {
-    minWidth: 'auto',
-    width: 319,
+    width: 50,
     height: 50,
     borderRadius: 20,
+    border: 'none',
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    cursor: 'pointer',
   },
   variants: {
     type: {

@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { CustomDiv } from '../custom-div';
-import styles from './CustomCell.module.scss';
+import { cell, cellSpaceBetween } from './CustomCell.css';
 
 type Props = {
   style?: object;
@@ -26,10 +26,10 @@ export const CustomCell = memo<Props>(({ style, pt, pb, pl, pr, space, before, a
         paddingBottom: pb,
         ...style,
       }}
-      className={`${styles.custom_cell} ${onClick && styles.custom_cell__clickable}`}
+      className={cell}
     >
       <div style={{ marginRight: space / 2 }}>{before}</div>
-      <div style={{ marginLeft: space / 2 }} className={styles.custom_cell__space_between}>
+      <div style={{ marginLeft: space / 2 }} className={cellSpaceBetween}>
         <div>{children}</div>
         <div>{after}</div>
       </div>

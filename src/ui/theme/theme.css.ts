@@ -18,6 +18,7 @@ const root = createGlobalTheme('#root', {
 const elementsContract = createThemeContract({
   panelBackground: null,
   modalBackground: null,
+  cardBackground: null,
   customDivBg: null,
   btn: {
     primary: {
@@ -52,6 +53,7 @@ const elementsContract = createThemeContract({
 export const lightTheme = createTheme(elementsContract, {
   panelBackground: 'rgb(249, 249, 249)',
   modalBackground: 'rgb(249, 249, 249)',
+  cardBackground: 'rgb(249, 249, 249)',
   customDivBg: 'rgb(255, 255, 255)',
   btn: {
     primary: {
@@ -86,6 +88,7 @@ export const lightTheme = createTheme(elementsContract, {
 export const darkTheme = createTheme(elementsContract, {
   panelBackground: 'rgb(36, 36, 36)',
   modalBackground: 'rgb(36, 36, 36)',
+  cardBackground: 'rgb(36, 36, 36)',
   customDivBg: 'rgb(25, 25, 26)',
   btn: {
     primary: {
@@ -119,6 +122,7 @@ export const darkTheme = createTheme(elementsContract, {
 
 export const vars = { all: elementsContract, ...root };
 
+const important = (value: string) => `${value} !important`;
 globalStyle('#root', {
   boxSizing: 'border-box',
   fontSize: '16px',
@@ -126,24 +130,60 @@ globalStyle('#root', {
   userSelect: 'none',
 });
 globalStyle(`.vkui__root`, {
-  '--font-display': `SF Pro Rounded !important`,
-  '--font-tt': `SF Pro Rounded !important`,
-  '--font-common': `SF Pro Rounded !important`,
-  '--background_page': vars.all.panelBackground,
-  '--background_content': vars.all.panelBackground,
-  '--header_background': vars.all.panelBackground,
+  '--font-display': important(vars.fonts.SFProRounded),
+  '--font-tt': important(vars.fonts.SFProRounded),
+  '--font-common': important(vars.fonts.SFProRounded),
+  '--background_page': important(vars.all.panelBackground),
+  '--background_content': important(vars.all.panelBackground),
+  '--header_background': important(vars.all.panelBackground),
 } as any);
 globalStyle(`.vkuiSearch`, {
-  padding: '0 !important',
-  background: 'transparent !important',
+  padding: important('0'),
+  background: important('transparent'),
   marginTop: '1rem',
 } as any);
 globalStyle(`.vkuiPanel.vkuiPanel--sizeX-regular .vkuiPanel__in, .vkuiPanel.vkuiPanel--sizeX-regular:after`, {
-  backgroundColor: `${vars.all.panelBackground} !important`,
+  backgroundColor: important(vars.all.panelBackground),
 } as any);
+globalStyle(`.vkuiModalPage__in`, {
+  backgroundColor: important(vars.all.modalBackground),
+  borderTopLeftRadius: important('18px'),
+  borderTopRightRadius: important('18px'),
+});
+globalStyle(`ModalCard`, {
+  backgroundColor: important(vars.all.cardBackground),
+});
 globalStyle(`.vkuiSnackbar`, {
-  background: `transparent !important`,
+  background: important('transparent'),
 } as any);
+globalStyle(`.vkuiPromoBanner .SimpleCell--ios, .vkuiPromoBanner .SimpleCell--andoid, .vkuiPromoBanner .PromoBanner__head`, {
+  paddingLeft: important('16px'),
+  paddingRight: important('16px'),
+});
+globalStyle('.vkuiPromoBanner .SimpleCell__after', {
+  display: important('none'),
+});
+globalStyle('.vkuiPromoBanner', {
+  zIndex: important('10000px'),
+  borderRadius: important('21px'),
+  outline: important('none'),
+  position: 'fixed',
+  boxShadow: important('0px 0px 16px rgba(0, 0, 0, 0.05)'),
+});
+globalStyle('.vkuiPromoBanner', {
+  width: important('88.8vw'),
+  left: important('50%'),
+  WebkitTransform: important('translateX(-50%)'),
+  MozTransformOrigin: important('translateX(-50%)'),
+  msTransform: important('translateX(-50%)'),
+  OTransform: important('translateX(-50%)'),
+  transform: important('translateX(-50%)'),
+  bottom: important('2vh'),
+});
+globalStyle('.vkuiPromoBanner', {
+  width: important('333px'),
+  bottom: important('18px'),
+});
 
 export const contentCenter = recipe({
   base: {
