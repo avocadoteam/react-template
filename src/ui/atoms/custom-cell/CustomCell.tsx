@@ -3,6 +3,7 @@ import { CustomDiv } from '../custom-div';
 import { cell, cellSpaceBetween } from './CustomCell.css';
 
 type Props = {
+  dataTestId?: string;
   style?: object;
   className?: string;
   before: React.ReactNode;
@@ -16,24 +17,29 @@ type Props = {
   onClick?: () => void;
 };
 
-export const CustomCell = memo<Props>(({ style, className, pt, pb, pl, pr, space, before, after, children, onClick }) => {
-  return (
-    <CustomDiv
-      onClick={onClick}
-      style={{
-        paddingRight: pr,
-        paddingLeft: pl,
-        paddingTop: pt,
-        paddingBottom: pb,
-        ...style,
-      }}
-      className={`${cell} ${className}`}
-    >
-      <div style={{ marginRight: space / 2 }}>{before}</div>
-      <div style={{ marginLeft: space / 2 }} className={cellSpaceBetween}>
-        <div>{children}</div>
-        <div>{after}</div>
-      </div>
-    </CustomDiv>
-  );
-});
+export const CustomCell = memo<Props>(
+  ({ dataTestId, style, className, pt, pb, pl, pr, space, before, after, children, onClick }) => {
+    const testId = dataTestId ?? 'custom-cell';
+
+    return (
+      <CustomDiv
+        dataTestId={testId}
+        onClick={onClick}
+        style={{
+          paddingRight: pr,
+          paddingLeft: pl,
+          paddingTop: pt,
+          paddingBottom: pb,
+          ...style,
+        }}
+        className={`${cell} ${className}`}
+      >
+        <div data-testid={`${testId}-before`}>{before}</div>
+        <div data-testid={`${testId}-space-between`} style={{ marginLeft: space }} className={cellSpaceBetween}>
+          <div data-testid={`${testId}-content`}>{children}</div>
+          <div data-testid={`${testId}-after`}>{after}</div>
+        </div>
+      </CustomDiv>
+    );
+  },
+);

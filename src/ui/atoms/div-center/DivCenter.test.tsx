@@ -1,25 +1,31 @@
-import { render, screen } from "@testing-library/react";
-import { DivCenter } from "./DivCenter";
+import { render, screen } from '@testing-library/react';
+import { clickableDiv } from '../clickable-div/ClickableDiv.css';
+import { DivCenter } from './DivCenter';
+import { divCenter } from './DivCenter.css';
 
-describe("Test DivCenter component", () => {
+describe('Test DivCenter component', () => {
   let wrapper: HTMLElement;
   beforeEach(() => {
-    render(<DivCenter>test div</DivCenter>);
-    wrapper = screen.getByTestId("div-center");
+    render(<DivCenter>divText</DivCenter>);
+    wrapper = screen.getByTestId('div-center');
   });
-  test("render component", () => {
+  test('render component', () => {
     expect(wrapper).toBeInTheDocument();
   });
-  test("display equal to flex", () => {
-    expect(wrapper.style).toHaveProperty("display", "flex");
+  test('text of component equal to "divText"', () => {
+    expect(screen.getByText('divText')).toBeInTheDocument();
   });
-  test("flexDirection equal to row", () => {
-    expect(wrapper.style).toHaveProperty("flexDirection", "row");
+  test(`className equal to "${clickableDiv({ clickable: false })} ${divCenter} undefined"`, () => {
+    expect(wrapper.className).toEqual(`${clickableDiv({ clickable: false })} ${divCenter} undefined`);
   });
-  test("justifyContent equal to center", () => {
-    expect(wrapper.style).toHaveProperty("justifyContent", "center");
-  });
-  test("textAlign equal to center", () => {
-    expect(wrapper.style).toHaveProperty("textAlign", "center");
+  test(`className with prop "1" equal to "${clickableDiv({ clickable: false })} ${divCenter} 1"`, () => {
+    render(
+      <DivCenter className="1" dataTestId="1">
+        1
+      </DivCenter>,
+    );
+    const wrapper = screen.getByTestId('1');
+
+    expect(wrapper.className).toEqual(`${clickableDiv({ clickable: false })} ${divCenter} 1`);
   });
 });

@@ -12,13 +12,11 @@ type Props = {
 };
 
 export const CustomButton = memo<Props>(({ type, disabled, children, dataTestId, onClick }) => {
-  const testId = dataTestId ?? 'custom-button';
-
   return (
     <Button
       disabled={disabled}
       onClick={onClick}
-      data-testid={testId}
+      data-testid={dataTestId ?? 'custom-button'}
       className={`${btn({ type })} ${typography({ variant: 'btn' })}`}
     >
       {children}

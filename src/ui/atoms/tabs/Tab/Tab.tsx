@@ -17,22 +17,35 @@ export const Tab = memo<Props>(({ onClick, children, isActive }) => {
 });
 
 type PropsDefault = {
+  dataTestId?: string;
   onClick: () => void;
   children: React.ReactNode;
 };
 
-const TabDefault = memo<PropsDefault>(({ children, onClick }) => {
+export const TabDefault = memo<PropsDefault>(({ dataTestId, children, onClick }) => {
   return (
-    <DivCenter onClick={onClick} className={`${tab({ type: 'default' })} ${typography({ variant: 'tab' })}`}>
+    <DivCenter
+      dataTestId={dataTestId ?? 'tab-default'}
+      onClick={onClick}
+      className={`${tab({ type: 'default' })} ${typography({ variant: 'tab' })}`}
+    >
       {children}
     </DivCenter>
   );
 });
 
 type PropsActive = {
+  dataTestId?: string;
   children: React.ReactNode;
 };
 
-const TabActive = memo<PropsActive>(({ children }) => {
-  return <DivCenter className={`${tab({ type: 'active' })} ${typography({ variant: 'tab' })}`}>{children}</DivCenter>;
+export const TabActive = memo<PropsActive>(({ dataTestId, children }) => {
+  return (
+    <DivCenter
+      dataTestId={dataTestId ?? 'tab-active'}
+      className={`${tab({ type: 'active' })} ${typography({ variant: 'tab' })}`}
+    >
+      {children}
+    </DivCenter>
+  );
 });

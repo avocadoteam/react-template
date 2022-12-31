@@ -17,7 +17,7 @@ describe('ClickableDiv component', () => {
   test(`className equal to "${clickableDiv({ clickable: false })} undefined"`, () => {
     expect(wrapper.className).toEqual(`${clickableDiv({ clickable: false })} undefined`);
   });
-  test('click have work', () => {
+  test('handle click', () => {
     let i = 0;
     const onClick = () => ++i;
 
@@ -26,6 +26,16 @@ describe('ClickableDiv component', () => {
     fireEvent.click(wrapper);
 
     expect(i).toEqual(1);
+  });
+  test('handle disabled click', () => {
+    let i = 0;
+    const onClick = () => ++i;
+
+    render(<ClickableDiv disabled onClick={onClick} dataTestId="1" />);
+    const wrapper = screen.getByTestId('1');
+    fireEvent.click(wrapper);
+
+    expect(i).toEqual(0);
   });
   test(`className with onClick equal to "${clickableDiv({ clickable: true })} undefined"`, () => {
     render(<ClickableDiv onClick={() => console.log('click')} dataTestId="1" />);

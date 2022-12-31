@@ -11,10 +11,13 @@ type Props = {
 };
 
 export const DivCenter = memo<Props>(({ children, dataTestId, className, style, onClick }) => {
-  const testId = dataTestId ?? 'div-center';
-
   return (
-    <ClickableDiv onClick={onClick} className={`${divCenter} ${className}`} style={style} data-testid={testId}>
+    <ClickableDiv
+      onClick={onClick}
+      className={`${divCenter} ${className}`}
+      style={style}
+      dataTestId={dataTestId ?? 'div-center'}
+    >
       {children}
     </ClickableDiv>
   );
