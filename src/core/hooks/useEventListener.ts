@@ -1,12 +1,8 @@
-import { useEffect } from "react";
-import { usePrevious } from "./usePrevious";
+import { useEffect } from 'react';
+import { usePrevious } from './usePrevious';
 
-export const useEventListener = (
-  eventType: string,
-  callback: () => void,
-  dependecies?: any[]
-) => {
-  const prevCallback = usePrevious<() => void>(callback);
+export const useEventListener = (eventType: string, callback: (e: any) => void, dependecies?: any[]) => {
+  const prevCallback = usePrevious<(e: any) => void>(callback);
   useEffect(
     () => {
       window.removeEventListener(eventType, prevCallback);
@@ -14,6 +10,6 @@ export const useEventListener = (
       window.addEventListener(eventType, callback);
       return () => window.removeEventListener(eventType, callback);
     },
-    dependecies ? [...dependecies] : []
+    dependecies ? [...dependecies] : [],
   );
 };

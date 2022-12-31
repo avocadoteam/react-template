@@ -48,6 +48,17 @@ const elementsContract = createThemeContract({
     color: null,
     background: null,
   },
+  gray: {
+    [100]: null,
+    [200]: null,
+    [300]: null,
+    [400]: null,
+    [500]: null,
+    [600]: null,
+    [700]: null,
+    [800]: null,
+    [900]: null,
+  },
 });
 
 export const lightTheme = createTheme(elementsContract, {
@@ -80,9 +91,10 @@ export const lightTheme = createTheme(elementsContract, {
     },
   },
   snackbar: {
-    color: root.palette.light.gray[600],
+    color: palette.light.gray[600],
     background: 'rgba(255, 255, 255)',
   },
+  gray: palette.light.gray,
 });
 
 export const darkTheme = createTheme(elementsContract, {
@@ -115,9 +127,10 @@ export const darkTheme = createTheme(elementsContract, {
     },
   },
   snackbar: {
-    color: root.palette.dark.gray[600],
+    color: palette.dark.gray[600],
     background: 'rgb(25, 25, 26)',
   },
+  gray: palette.dark.gray,
 });
 
 export const vars = { all: elementsContract, ...root };
@@ -142,7 +155,7 @@ globalStyle(`.vkuiSearch`, {
   background: important('transparent'),
   marginTop: '1rem',
 } as any);
-globalStyle(`.vkuiPanel.vkuiPanel--sizeX-regular .vkuiPanel__in, .vkuiPanel.vkuiPanel--sizeX-regular:after`, {
+globalStyle(`.vkuiPanel__in`, {
   backgroundColor: important(vars.all.panelBackground),
 } as any);
 globalStyle(`.vkuiModalPage__in`, {

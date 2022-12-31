@@ -2,6 +2,8 @@ export * from './clickable-div';
 export * from './custom-button';
 export * from './custom-cell';
 export * from './custom-div';
+export * from './custom-layout';
+export * from './custom-modal-card';
 export * from './custom-modal-page';
 export * from './custom-panel';
 export * from './div-center';

@@ -6,18 +6,25 @@ import { memo, useCallback } from 'react';
 
 type Props = {
   id: ModalRoute;
+  onClose?: () => void;
   children: React.ReactNode;
 };
 
-export const CustomModalPage = memo<Props>(({ id, children }) => {
+export const CustomModalPage = memo<Props>(({ id, children, onClose }) => {
   const platform = usePlatform();
   const handleClose = useCallback(() => {
+    if (!!onClose) {
+      onClose();
+      return;
+    }
     back();
-  }, []);
+  }, [onClose]);
 
   return (
     <ModalPage
       id={id}
+      hideCloseButton
+      onClose={handleClose}
       settlingHeight={100}
       header={
         <ModalPageHeader

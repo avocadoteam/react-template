@@ -24,6 +24,55 @@ export const typography = recipe({
         fontWeight: 500,
       },
     },
+    onboarding: {
+      header: {
+        fontSize: '18px',
+        fontWeight: 600,
+        color: vars.all.gray[600],
+      },
+      listItem: {
+        fontsSize: '15px',
+        fontWeight: 400,
+        color: vars.all.gray[400],
+      },
+    },
+    home: {
+      header: {
+        fontSize: '18px',
+        fontWeight: 600,
+        color: vars.all.gray[600],
+      },
+      text: {
+        fontSize: '15px',
+        fontWeight: 400,
+        color: vars.all.gray[400],
+      },
+    },
+    offline: {
+      header: {
+        fontSize: '24px',
+        letterSpacing: '-0.24px',
+        fontWeight: 900,
+        color: vars.all.gray[900],
+      },
+      description: {
+        fontSize: '20px',
+        fontWeight: 500,
+        color: vars.all.gray[500],
+      },
+    },
+    notifications: {
+      header: {
+        fontSize: '18px',
+        fontWeight: 600,
+        color: vars.all.gray[600],
+      },
+      subheader: {
+        fontSize: '14px',
+        fontWeight: 400,
+        color: vars.all.gray[400],
+      },
+    },
     weight: {
       thin: {
         fontWeight: 100,

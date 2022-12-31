@@ -1,6 +1,6 @@
 import { ModalRoute, PanelRoute, PopoutRoute, ViewRoute } from '@core/models';
 import { createStore } from 'effector';
-import { setActiveModal, setActivePanel, setActivePopout, setActiveView } from './event';
+import { _setActiveModal, _setActivePopout, setActiveModal, setActivePanel, setActivePopout, setActiveView } from './event';
 
 type Store = {
   activeView: ViewRoute;
@@ -27,7 +27,15 @@ export const $router = createStore<Store>({
     ...state,
     activeModal,
   }))
+  .on(_setActiveModal, (state, activeModal) => ({
+    ...state,
+    activeModal,
+  }))
   .on(setActivePopout, (state, activePopout) => ({
+    ...state,
+    activePopout,
+  }))
+  .on(_setActivePopout, (state, activePopout) => ({
     ...state,
     activePopout,
   }));

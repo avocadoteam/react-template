@@ -29,7 +29,7 @@ export const Snackbars = memo(() => {
 });
 
 const snackIcons = {
-  success: <>BM</>,
-  message: <>BM</>,
-  failed: <>BM</>,
+  success: <></>,
+  message: <></>,
+  failed: <></>,
 };

@@ -25,7 +25,9 @@
           "^effector$": "effector/compat",
           "^effector-react$": "effector-react/compat"
         }
-      }
-    ]
+      },
+      "effector-logger/babel-plugin"
+    ],
+    "@vanilla-extract/babel-plugin"
   ]
 }

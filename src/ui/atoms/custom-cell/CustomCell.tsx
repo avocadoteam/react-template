@@ -4,6 +4,7 @@ import { cell, cellSpaceBetween } from './CustomCell.css';
 
 type Props = {
   style?: object;
+  className?: string;
   before: React.ReactNode;
   after: React.ReactNode;
   children: React.ReactNode;
@@ -15,7 +16,7 @@ type Props = {
   onClick?: () => void;
 };
 
-export const CustomCell = memo<Props>(({ style, pt, pb, pl, pr, space, before, after, children, onClick }) => {
+export const CustomCell = memo<Props>(({ style, className, pt, pb, pl, pr, space, before, after, children, onClick }) => {
   return (
     <CustomDiv
       onClick={onClick}
@@ -26,7 +27,7 @@ export const CustomCell = memo<Props>(({ style, pt, pb, pl, pr, space, before, a
         paddingBottom: pb,
         ...style,
       }}
-      className={cell}
+      className={`${cell} ${className}`}
     >
       <div style={{ marginRight: space / 2 }}>{before}</div>
       <div style={{ marginLeft: space / 2 }} className={cellSpaceBetween}>

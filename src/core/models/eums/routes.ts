@@ -1,21 +1,18 @@
 export enum ViewRoute {
   Main = 'Main',
 
-  Onboarding = 'Onboarding',
-
   ConnectionError = 'ConnectionError',
 }
 
 export enum PanelRoute {
   Home = 'Home',
 
-  Welcome = 'Welcome',
-
   Offline = 'Offline',
 }
 
 export enum ModalRoute {
-  Welcome = 'Welcome',
+  Onboarding = 'Onboarding',
+  Notifications = 'Notifications',
 }
 
 export enum PopoutRoute {

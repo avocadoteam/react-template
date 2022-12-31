@@ -6,7 +6,6 @@ import { VitePWA } from 'vite-plugin-pwa';
 export default defineConfig({
   resolve: {
     alias: {
-      fonts: '/public/fonts',
       images: '/public/images',
       src: '/src',
       '@core': '/src/core',

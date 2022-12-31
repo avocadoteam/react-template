@@ -9,6 +9,7 @@ export const occureTapticEngine = (style: 'light' | 'medium' | 'heavy') => {
 };
 
 export const closeApp = () => {
+  console.log(vkBridge.supports('VKWebAppClose'));
   vkBridge
     .send('VKWebAppClose', { status: 'success' })
     .then(() => console.log('app closed'))

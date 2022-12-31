@@ -1,19 +1,28 @@
 import { PanelRoute, PopoutRoute } from '@core/models';
 import { closeApp } from '@core/vk-bridge';
 import { useConnection } from './useConnection';
-import { useInit } from './useInit';
 import { useResize } from './useResize';
-import { createDisableBackRouteMiddleware, createRouteMiddleware, useInitRouter } from './useRoutes';
+import { createDisableBackBrowserRouteMiddleware, createRouteMiddleware, useInitRouter } from './useRoutes';
 import { useTheme } from './useTheme';
+import { useVKStorage } from './useVKStorage';
 
 export const useAppInit = () => {
-  useInit();
-  useTheme();
-  useResize();
   useInitRouter(
-    createDisableBackRouteMiddleware(PopoutRoute.Loading),
-    createDisableBackRouteMiddleware(PanelRoute.Home, closeApp),
+    createRouteMiddleware((storeRoutes, hashRoutes) => {
+      return (
+        storeRoutes.view !== hashRoutes.view ||
+        storeRoutes.panel !== hashRoutes.panel ||
+        storeRoutes.modal !== hashRoutes.modal ||
+        storeRoutes.popout !== hashRoutes.modal
+      );
+    }),
+    createDisableBackBrowserRouteMiddleware(PopoutRoute.Loading),
+    createDisableBackBrowserRouteMiddleware(PanelRoute.Home, closeApp),
     createRouteMiddleware(storeRoutes => {
+      if (!window.location.hash) {
+        closeApp();
+        return false;
+      }
       if (navigator.onLine) {
         return true;
       }
@@ -21,5 +30,8 @@ export const useAppInit = () => {
       return false;
     }),
   );
+  useTheme();
+  useResize();
   useConnection();
+  useVKStorage();
 };

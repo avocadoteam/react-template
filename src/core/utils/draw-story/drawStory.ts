@@ -9,6 +9,7 @@ export const drawStory = (
     y: number;
     text: string | number;
     fontSize: number;
+    fontWeight: number;
     color: string;
     fontFamily: string;
   }[],
@@ -27,7 +28,7 @@ export const drawStory = (
       if (elements) {
         elements.forEach(e => {
           ctx.fillStyle = e.color;
-          ctx.font = `${e.fontSize}px ${e.fontFamily}`;
+          ctx.font = `${e.fontWeight} ${e.fontSize}px ${e.fontFamily}`;
           if (e.x === 'center') {
             ctx.fillText(
               String(e.text),
