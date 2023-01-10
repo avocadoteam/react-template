@@ -1,4 +1,4 @@
-import { vars } from '@ui/theme/theme.css';
+import { vars } from '@ui/theme';
 import { recipe } from '@vanilla-extract/recipes';
 
 export const tab = recipe({

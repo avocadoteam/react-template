@@ -1,5 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { typography } from '@ui/theme';
+import { vi } from 'vitest';
 import { CustomButton } from './CustomButton';
 import { btn } from './CustomButton.css';
 
@@ -9,7 +10,7 @@ describe('Test CustomizedButton component', () => {
   let wrapper: HTMLElement;
   beforeEach(() => {
     render(
-      <CustomButton onClick={jest.fn()} type="primary">
+      <CustomButton onClick={vi.fn()} type="primary">
         Click me!
       </CustomButton>,
     );
@@ -26,7 +27,7 @@ describe('Test CustomizedButton component', () => {
   });
   test(`className with prop type negative equal to "${btn({ type: 'negative' })} ${typography({ variant: 'btn' })}"`, () => {
     render(
-      <CustomButton dataTestId="1" type="negative" onClick={jest.fn()}>
+      <CustomButton dataTestId="1" type="negative" onClick={vi.fn()}>
         1
       </CustomButton>,
     );
@@ -35,7 +36,7 @@ describe('Test CustomizedButton component', () => {
   });
   test(`className equal to "${btn({ type: 'transparent' })} ${typography({ variant: 'btn' })}"`, () => {
     render(
-      <CustomButton dataTestId="1" type="transparent" onClick={jest.fn()}>
+      <CustomButton dataTestId="1" type="transparent" onClick={vi.fn()}>
         1
       </CustomButton>,
     );

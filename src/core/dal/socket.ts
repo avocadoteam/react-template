@@ -1,5 +1,5 @@
 import { ApiEmit, ApiEvent } from '@core/models';
-import { getUrlParams } from '@core/utils';
+import { getSearchParams } from '@core/utils';
 import { connect } from 'socket.io-client';
 
 export const socket = {
@@ -38,14 +38,14 @@ export const socket = {
     if (this.socket) {
       this.socket.connect(url, {
         path: '/socket.io',
-        query: getUrlParams(),
+        query: getSearchParams(),
         transports: ['websocket', 'polling', 'flashsocket'],
         reconnection: false,
       });
     } else {
       this.socket = connect(url, {
         path: '/socket.io',
-        query: getUrlParams(),
+        query: getSearchParams(),
         transports: ['websocket', 'polling', 'flashsocket'],
         reconnection: false,
       });

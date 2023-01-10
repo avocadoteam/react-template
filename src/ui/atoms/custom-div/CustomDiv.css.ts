@@ -1,4 +1,4 @@
-import { vars } from '@ui/theme/theme.css';
+import { vars } from '@ui/theme';
 import { style } from '@vanilla-extract/css';
 
 export const customDiv = style({

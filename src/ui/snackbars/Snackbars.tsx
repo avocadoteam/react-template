@@ -30,6 +30,6 @@ export const Snackbars = memo(() => {
 
 const snackIcons = {
   success: <></>,
-  message: <></>,
-  failed: <></>,
+  error: <></>,
+  info: <></>,
 };

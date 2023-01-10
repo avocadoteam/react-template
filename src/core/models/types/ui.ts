@@ -5,7 +5,7 @@ export type Snackbar = {
   message: string;
 };
 
-type SnackbarType = 'failed' | 'success' | 'message';
+type SnackbarType = 'info' | 'success' | 'error';
 
 export type Tab = {
   title: string;

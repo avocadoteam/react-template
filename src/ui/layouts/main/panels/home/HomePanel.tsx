@@ -23,7 +23,7 @@ type Props = {
 export const HomePanel = memo<Props>(({ id }) => {
   const { isUserSubscribedNotification } = useStore($main);
   const showSnackbar = useCallback(() => {
-    setSnackbar({ type: 'message', message: 'Snackbar showed' });
+    setSnackbar({ type: 'info', message: 'Snackbar showed' });
   }, []);
   const share = useCallback(() => {
     shareLink('https://yandex.ru/search/?clid=2285101&text=google&lr=2');

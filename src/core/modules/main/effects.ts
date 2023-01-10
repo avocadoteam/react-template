@@ -3,13 +3,10 @@ import { allowNotification, denyNotification, setStorageValue } from '@core/vk-b
 import { createEffect } from 'effector';
 import { back, setActivePopout } from '../router';
 import { setSnackbar } from '../ui';
-import { checkOnboardingEvent, setFetching } from './events';
+import { checkOnboardingEvent } from './events';
 
 export const checkOnboardingEffect = createEffect(async () => {
   setStorageValue({ key: StorageKey.IsCheckOnboarding, value: true });
-});
-checkOnboardingEffect.pending.watch(isPending => {
-  setFetching(isPending);
 });
 checkOnboardingEffect.doneData.watch(() => {
   checkOnboardingEvent();
@@ -21,7 +18,7 @@ export const subscribeNotification = createEffect(async () => {
     await allowNotification();
     setSnackbar({ type: 'success', message: 'Notifications enabled' });
   } catch (e) {
-    setSnackbar({ type: 'failed', message: 'You regret notifications' });
+    setSnackbar({ type: 'error', message: 'You regret notifications' });
   } finally {
     back();
   }
@@ -33,7 +30,7 @@ export const unsubscribeNotification = createEffect(async () => {
     await denyNotification();
     setSnackbar({ type: 'success', message: 'Notifications disabled' });
   } catch (e) {
-    setSnackbar({ type: 'failed', message: 'Something went wrong' });
+    setSnackbar({ type: 'error', message: 'Something went wrong' });
   } finally {
     back();
   }

@@ -1,7 +1,7 @@
 import { StorageKey } from '@core/models';
 import { vkBridge } from '../instance';
 
-export const setStorageValue = async ({ key, value }: { key: string; value: any }) => {
+export const setStorageValue = ({ key, value }: { key: string; value: any }) => {
   return vkBridge
     .send('VKWebAppStorageSet', { key, value: JSON.stringify(value) })
     .then(res => res.result)
@@ -11,7 +11,7 @@ export const setStorageValue = async ({ key, value }: { key: string; value: any 
     });
 };
 
-export const getStorageKeys = async () => {
+export const getStorageKeys = () => {
   return vkBridge
     .send('VKWebAppStorageGetKeys')
     .then(res => res.keys)
@@ -21,7 +21,7 @@ export const getStorageKeys = async () => {
     });
 };
 
-export const getStorage = async (keys: string[]) => {
+export const getStorage = (keys: string[]) => {
   return vkBridge
     .send('VKWebAppStorageGet', { keys })
     .then(res => res.keys)
