@@ -1,4 +1,3 @@
 export const vkQuery = window.location.search;
 export const fetcherBaseUrl = 'https://fetcher.com';
 export const socketBaseUrl = 'https://socket.com';
-export const accessToken = 'from vk-mini-app in settings';
