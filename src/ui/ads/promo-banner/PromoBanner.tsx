@@ -10,7 +10,7 @@ export const PromoBanner = memo(() => {
   const panels = useMemo(() => [PanelRoute.Home], []);
   const { isAppInit } = useStore($main);
   const { activePanel } = useRouter();
-  const [banners, setBanners] = useState<(null | any)[]>([null, null, null, null]);
+  const [banners, setBanners] = useState<(null | any)[]>(new Array(panels.length).fill(null));
   const handleClose = useCallback(
     (i: number) => () => {
       setBanners(prev => prev.map((b, index) => (i === index ? null : b)));
