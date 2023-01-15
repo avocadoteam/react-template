@@ -4,7 +4,7 @@ import { usePrevious } from './usePrevious';
 export const useEventListener = <T extends keyof WindowEventMap>(
   eventType: T,
   callback: (e: WindowEventMap[T]) => void,
-  dependecies?: any[],
+  deps?: any[],
 ) => {
   const prevCallback = usePrevious<(e: WindowEventMap[T]) => void>(callback);
   useEffect(
@@ -14,6 +14,6 @@ export const useEventListener = <T extends keyof WindowEventMap>(
       window.addEventListener(eventType, callback);
       return () => window.removeEventListener(eventType, callback);
     },
-    dependecies ? [...dependecies] : [],
+    deps ? [...deps] : [],
   );
 };

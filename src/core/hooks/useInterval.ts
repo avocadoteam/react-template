@@ -5,14 +5,11 @@ export const useInterval = (callback: () => void, delay: number, deps?: any[]) =
   useEffect(
     () => {
       clearInterval(intervalId);
-      setIntervalId(
-        setInterval(() => {
-          callback();
-        }, delay),
-      );
+      const newIntervalId = setInterval(callback, delay);
+      setIntervalId(newIntervalId);
 
       return () => {
-        clearInterval(intervalId);
+        clearInterval(newIntervalId);
       };
     },
     deps ? [delay, ...deps] : [delay],
