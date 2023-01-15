@@ -1,7 +1,6 @@
+import { useUI } from '@core/hooks';
 import { PanelRoute } from '@core/models';
-import { $ui } from '@core/modules/ui';
 import { Panel } from '@vkontakte/vkui';
-import { useStore } from 'effector-react';
 import { memo } from 'react';
 
 type Props = {
@@ -12,7 +11,7 @@ type Props = {
 };
 
 export const CustomPanel = memo<Props>(({ id, className, style, children }) => {
-  const { dimensions } = useStore($ui);
+  const { dimensions } = useUI();
 
   return (
     <Panel id={id}>

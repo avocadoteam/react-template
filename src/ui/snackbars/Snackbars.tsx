@@ -1,15 +1,14 @@
-import { useTimeout } from '@core/hooks';
-import { $ui, setSnackbar } from '@core/modules/ui';
+import { useTimeout, useUI } from '@core/hooks';
+import { setSnackbar } from '@core/modules/ui';
 import { typography } from '@ui/theme/typography.css';
 import { Snackbar } from '@vkontakte/vkui';
-import { useStore } from 'effector-react';
 import { memo, useCallback } from 'react';
 import { snackbar as snackbarStyle } from './Snackbars.css';
 
 const duration = 3500;
 
 export const Snackbars = memo(() => {
-  const { snackbar } = useStore($ui);
+  const { snackbar } = useUI();
   const handleClose = useCallback(() => {
     setSnackbar(null);
   }, []);

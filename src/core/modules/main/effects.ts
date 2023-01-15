@@ -1,6 +1,6 @@
 import { PopoutRoute, StorageKey } from '@core/models';
 import { allowNotification, denyNotification, setStorageValue } from '@core/vk-bridge';
-import { createEffect } from 'effector';
+import { createEffect, forward } from 'effector';
 import { back, setActivePopout } from '../router';
 import { setSnackbar } from '../ui';
 import { checkOnboardingEvent } from './events';
@@ -8,8 +8,9 @@ import { checkOnboardingEvent } from './events';
 export const checkOnboardingEffect = createEffect(async () => {
   setStorageValue({ key: StorageKey.IsCheckOnboarding, value: true });
 });
-checkOnboardingEffect.doneData.watch(() => {
-  checkOnboardingEvent();
+forward({
+  from: checkOnboardingEffect.doneData,
+  to: checkOnboardingEvent,
 });
 
 export const subscribeNotification = createEffect(async () => {

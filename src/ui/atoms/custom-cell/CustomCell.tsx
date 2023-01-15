@@ -1,30 +1,29 @@
-import { memo } from 'react';
+import { ComponentProps, forwardRef, Ref } from 'react';
 import { CustomDiv } from '../custom-div';
 import { cell, cellSpaceBetween } from './CustomCell.css';
 
 type Props = {
-  dataTestId?: string;
-  style?: object;
-  className?: string;
   before: React.ReactNode;
   after: React.ReactNode;
-  children: React.ReactNode;
   pt: number;
   pb: number;
   pl: number;
   pr: number;
   space: number;
-  onClick?: () => void;
-};
+} & ComponentProps<typeof CustomDiv>;
 
-export const CustomCell = memo<Props>(
-  ({ dataTestId, style, className, pt, pb, pl, pr, space, before, after, children, onClick }) => {
+export const CustomCell = forwardRef(
+  (
+    { dataTestId, style, className, pt, pb, pl, pr, space, before, after, children, ...props }: Props,
+    ref: Ref<HTMLDivElement>,
+  ) => {
     const testId = dataTestId ?? 'custom-cell';
 
     return (
       <CustomDiv
+        {...props}
+        ref={ref}
         dataTestId={testId}
-        onClick={onClick}
         style={{
           paddingRight: pr,
           paddingLeft: pl,

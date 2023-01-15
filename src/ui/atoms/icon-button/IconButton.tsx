@@ -1,18 +1,18 @@
-import { memo } from 'react';
+import { ComponentProps, forwardRef, Ref } from 'react';
 import { ClickableDiv } from '../clickable-div';
 import { iconButton } from './IconButton.css';
 
 type Props = {
-  dataTestId?: string;
   type?: 'primary' | 'transparent' | 'negative';
-  children: React.ReactNode;
-  onClick: () => void;
-};
+} & ComponentProps<typeof ClickableDiv>;
 
-export const IconButton = memo<Props>(({ children, type, onClick, dataTestId }) => {
+export const IconButton = forwardRef(({ type, dataTestId, className, ...props }: Props, ref: Ref<HTMLDivElement>) => {
   return (
-    <ClickableDiv onClick={onClick} className={iconButton({ type })} dataTestId={dataTestId ?? 'icon-button'}>
-      {children}
-    </ClickableDiv>
+    <ClickableDiv
+      {...props}
+      ref={ref}
+      className={`${iconButton({ type })} ${className}`}
+      dataTestId={dataTestId ?? 'icon-button'}
+    />
   );
 });

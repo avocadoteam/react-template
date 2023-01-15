@@ -1,5 +1,5 @@
 import { Tab as TabType } from '@core/models';
-import { memo } from 'react';
+import { forwardRef, LegacyRef } from 'react';
 import { Tab } from './Tab';
 import { tabs as tabsStyle } from './Tabs.css';
 
@@ -9,9 +9,9 @@ type Props = {
   activeTab: TabType;
 };
 
-export const Tabs = memo<Props>(({ onClick, tabs, activeTab }) => {
+export const Tabs = forwardRef(({ onClick, tabs, activeTab }: Props, ref: LegacyRef<HTMLDivElement>) => {
   return (
-    <div className={tabsStyle}>
+    <div ref={ref} className={tabsStyle}>
       {tabs.map(t => (
         <Tab isActive={t.title === activeTab.title} onClick={() => onClick(t)} key={t.title}>
           {t.title}

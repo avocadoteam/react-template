@@ -2,7 +2,7 @@ import { ModalRoute, PopoutRoute, StorageKey } from '@core/models';
 import { checkOnboardingEvent, setAppInit, setUserSubscribedNotification } from '@core/modules/main';
 import { back, setActiveModal, setActivePopout } from '@core/modules/router';
 import { setAppearance } from '@core/modules/ui';
-import { getUrlParams } from '@core/utils';
+import { getSearchParams } from '@core/utils';
 import { DefaultUpdateConfigData } from '@vkontakte/vk-bridge';
 import { getStorage } from './api';
 import { vkBridge } from './instance';
@@ -13,7 +13,8 @@ export const vkBridgeInit = () => {
     if (type === 'VKWebAppUpdateConfig') {
       const d = data as DefaultUpdateConfigData;
       setAppearance(d.appearance);
-      setUserSubscribedNotification(!!+getUrlParams().vk_are_notifications_enabled);
+      const searchParams = getSearchParams();
+      setUserSubscribedNotification(!!+(searchParams.get('vk_are_notifications_enabled') as string));
     }
     if (type === 'VKWebAppDenyNotificationsResult') {
       setUserSubscribedNotification(false);

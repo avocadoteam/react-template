@@ -5,7 +5,7 @@ import { useStore } from 'effector-react';
 import { useEffect } from 'react';
 
 export const useTheme = () => {
-  const { appearance } = useStore($ui);
+  const { appearance } = useUI();
   useEffect(() => {
     const body = window.document.getElementsByTagName('body')[0];
     if (appearance === 'dark') {
@@ -22,3 +22,5 @@ export const useTheme = () => {
     }
   }, [appearance]);
 };
+
+export const useUI = () => useStore($ui);
