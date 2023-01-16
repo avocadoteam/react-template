@@ -12,7 +12,7 @@ type Props = {
 export const DivWithHeader = memo<Props>(({ header, icon, text, onClick }) => {
   return (
     <div>
-      <div className={typography({ home: 'header' })}>{header}</div>
+      <div className={typography({ home: 'header', m: 'l.5' })}>{header}</div>
       <CustomCell
         className={typography({ home: 'text', m: 't.5' })}
         onClick={onClick}

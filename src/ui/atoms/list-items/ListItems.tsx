@@ -1,6 +1,6 @@
+import { useIntersectionObserver } from '@core/hooks';
 import { Spinner } from '@vkontakte/vkui';
 import { ComponentProps, forwardRef, LegacyRef, useEffect } from 'react';
-import { useInView } from 'react-intersection-observer';
 import { listItems } from './ListItems.css';
 
 type Props = {
@@ -15,12 +15,12 @@ export const ListItems = forwardRef(
     { style, className, height, isShowSpinner, onListEndReached, items, ...props }: Props,
     listRef: LegacyRef<HTMLDivElement>,
   ) => {
-    const { inView, ref } = useInView();
+    const { entry, ref } = useIntersectionObserver({});
     useEffect(() => {
-      if (inView) {
+      if (entry?.isIntersecting) {
         onListEndReached();
       }
-    }, [inView, onListEndReached]);
+    }, [entry?.isIntersecting, onListEndReached]);
 
     return (
       <div {...props} ref={listRef} className={`${listItems} ${className}`} style={{ height, ...style }}>

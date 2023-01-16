@@ -28,12 +28,15 @@ export const vkBridgeInit = () => {
 
 export const vkStorageInit = () => {
   setActivePopout(PopoutRoute.Loading);
-  getStorage(Object.values(StorageKey)).then(async res => {
+  getStorage(Object.values(StorageKey)).then(res => {
     back();
-    for (let i = 0; i < res.length; i++) {
-      await handleKey(res[i]);
-    }
-    setAppInit(true);
+    const timeoutId = setTimeout(async () => {
+      for (let i = 0; i < res.length; i++) {
+        await handleKey(res[i]);
+      }
+      setAppInit(true);
+      clearTimeout(timeoutId);
+    }, 1000);
   });
 };
 const handleKey = async ({ key, value }: { key: string; value: string }) => {
