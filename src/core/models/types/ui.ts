@@ -1,5 +1,7 @@
 export type Appearance = 'dark' | 'light';
 
+export type FontStyle = 'thin' | 'ultralight' | 'light' | 'regular' | 'medium' | 'semibold' | 'bold' | 'extrabold' | 'black';
+
 export type Snackbar = {
   type: SnackbarType;
   message: string;
