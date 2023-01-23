@@ -7,7 +7,7 @@ type Props = {
   height: number;
   isShowSpinner: boolean;
   onListEndReached: () => void;
-  items: React.ReactNode;
+  items: React.ReactNode[];
 } & ComponentProps<'div'>;
 
 export const ListItems = forwardRef(
@@ -26,7 +26,7 @@ export const ListItems = forwardRef(
       <div {...props} ref={listRef} className={`${listItems} ${className}`} style={{ height, ...style }}>
         {items}
         {isShowSpinner && <Spinner />}
-        <div ref={ref} />
+        {items.length !== 0 && <div ref={ref} />}
       </div>
     );
   },
