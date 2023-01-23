@@ -1,4 +1,4 @@
-[<img width="134" src="https://vk.com/images/apps/mini_apps/vk_mini_apps_logo.svg">](https://vk.com/services)
+[<img width="134" src="https://webstockreview.net/images/comet-clipart-meteorite-4.png">](https://vk.com/services)
 
 # Create VK Mini App [![npm][npm]][npm-url] [![deps][deps]][deps-url]
 
