@@ -51,6 +51,9 @@ export const socket = {
       });
     }
   },
+  disconnect() {
+    this.socket.disconnect();
+  },
   getSocket() {
     return this.socket;
   },
