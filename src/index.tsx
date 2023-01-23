@@ -7,5 +7,3 @@ vkBridgeInit();
 
 const root = createRoot(document.getElementById('root')!);
 root.render(<App />);
-
-import('./eruda').then(({ default: eruda }) => {}); //runtime download

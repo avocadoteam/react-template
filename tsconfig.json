@@ -21,7 +21,10 @@
     "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": {
-      "images": [
+      "src/*": [
+        "./src/*"
+      ],
+      "images/*": [
         "./public/images/*"
       ],
       "@ui/*": [
