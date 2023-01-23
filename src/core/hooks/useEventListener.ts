@@ -1,19 +1,20 @@
 import { useEffect } from 'react';
-import { usePrevious } from './usePrevious';
 
-export const useEventListener = <T extends keyof WindowEventMap>(
-  eventType: T,
-  callback: (e: WindowEventMap[T]) => void,
-  deps?: any[],
+export const useEventListener = <K extends keyof WindowEventMap>(
+  eventListen: K,
+  callback: (e: WindowEventMap[K]) => void,
+  eventKey?: string,
 ) => {
-  const prevCallback = usePrevious<(e: WindowEventMap[T]) => void>(callback);
-  useEffect(
-    () => {
-      window.removeEventListener(eventType, prevCallback);
-      window.removeEventListener(eventType, callback);
-      window.addEventListener(eventType, callback);
-      return () => window.removeEventListener(eventType, callback);
-    },
-    deps ? [...deps] : [],
-  );
+  useEffect(() => {
+    const eventHandler = (event: WindowEventMap[K]) => {
+      if (event instanceof KeyboardEvent && event.key === eventKey) {
+        callback(event);
+      } else if (!eventKey) {
+        callback(event);
+      }
+    };
+
+    window.addEventListener(eventListen, eventHandler);
+    return () => window.removeEventListener(eventListen, eventHandler);
+  }, [eventListen, eventKey, callback]);
 };

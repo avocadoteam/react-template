@@ -1,20 +1,14 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { usePrevious } from './usePrevious';
 
-export const useTimeout = (callback: () => void, delay: number, deps?: any[]) => {
-  const [timeoutId, setTimeoutId] = useState<any>(null);
-  useEffect(
-    () => {
-      clearTimeout(timeoutId);
-      const newTimeoutId = setTimeout(() => {
-        callback();
-        clearTimeout(newTimeoutId);
-      }, delay);
-      setTimeoutId(newTimeoutId);
+export const useTimeout = (callback: () => void, delay: number | null, deps: unknown[]) => {
+  const savedCallback = usePrevious(callback, deps);
 
-      return () => {
-        clearTimeout(newTimeoutId);
-      };
-    },
-    deps ? [delay, ...deps] : [delay],
-  );
+  useEffect(() => {
+    if (!!delay && savedCallback) {
+      const id = setTimeout(savedCallback, delay);
+      return () => clearTimeout(id);
+    }
+    return undefined;
+  }, [delay, savedCallback, ...deps]);
 };

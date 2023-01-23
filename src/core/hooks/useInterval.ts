@@ -1,17 +1,14 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { usePrevious } from './usePrevious';
 
-export const useInterval = (callback: () => void, delay: number, deps?: any[]) => {
-  const [intervalId, setIntervalId] = useState<any>(null);
-  useEffect(
-    () => {
-      clearInterval(intervalId);
-      const newIntervalId = setInterval(callback, delay);
-      setIntervalId(newIntervalId);
+export const useInterval = (callback: () => void, delay: number | null, deps: unknown[]) => {
+  const savedCallback = usePrevious(callback, deps);
 
-      return () => {
-        clearInterval(newIntervalId);
-      };
-    },
-    deps ? [delay, ...deps] : [delay],
-  );
+  useEffect(() => {
+    if (!!delay && savedCallback) {
+      const id = setInterval(savedCallback, delay);
+      return () => clearInterval(id);
+    }
+    return undefined;
+  }, [delay, savedCallback, ...deps]);
 };

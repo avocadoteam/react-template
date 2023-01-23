@@ -1,7 +1,7 @@
 import { ModalRoute, PanelRoute, PopoutRoute, ViewRoute } from '@core/models';
-import { $router, _setActiveModal, _setActivePopout, setActivePanel, setActiveView } from '@core/modules/router';
+import { $router, setActivePanel, setActiveView, _setActiveModal, _setActivePopout } from '@core/modules/router';
 import { useStore } from 'effector-react';
-import { useCallback, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useEventListener } from '../useEventListener';
 
 export const useInitRouter = (...middlewares: RouteMiddleware[]) => {
@@ -12,7 +12,7 @@ export const useInitRouter = (...middlewares: RouteMiddleware[]) => {
     }
   }, [activeView, activePanel, activeModal, activePopout]);
 
-  const handleHashChange = useCallback(async () => {
+  useEventListener('hashchange', async () => {
     const changeRoutes = async () => {
       const [view, panel, modal, popout] = window.location.hash
         .slice(1)
@@ -37,8 +37,7 @@ export const useInitRouter = (...middlewares: RouteMiddleware[]) => {
     };
     await changeRoutes();
     window.isBackFromBrowser = true;
-  }, [activeView, activePanel, activeModal, activePopout]);
-  useEventListener('hashchange', handleHashChange, [activeView, activePanel, activeModal, activePopout]);
+  });
 };
 
 export const useRouter = () => useStore($router);
