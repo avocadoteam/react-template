@@ -43,6 +43,7 @@ specifiers:
   typescript: ^4.8.4
   vite: ^4.0.4
   vite-plugin-pwa: ^0.14.0
+  vite-plugin-singlefile: ^0.13.2
   vite-tsconfig-paths: ^4.0.3
   vitest: ^0.26.3
 
@@ -91,6 +92,7 @@ devDependencies:
   effector-logger: 0.13.6_effector@22.4.1
   prettier: 2.8.1
   vite: 4.0.4_@types+node@18.11.17
+  vite-plugin-singlefile: 0.13.2_vite@4.0.4
   vite-tsconfig-paths: 4.0.3_gl4qsmwzp7wy5uclz4tx77gbli
   vitest: 0.26.3
 
@@ -8503,6 +8505,17 @@ packages:
       - '@types/babel__core'
       - supports-color
     dev: false
+
+  /vite-plugin-singlefile/0.13.2_vite@4.0.4:
+    resolution: {integrity: sha512-HAvrU9mxasNMn/YF0Hb9NjsWDstCWe4iLQ6IR5ppOiNMvXjcyqU3C9SDQ32xnonx3Y04JUGjD2bGiT6q0S9T8w==}
+    engines: {node: ^14.18.0 || >=16.0.0}
+    peerDependencies:
+      rollup: '>=2.79.0'
+      vite: '>=3.2.0'
+    dependencies:
+      micromatch: 4.0.5
+      vite: 4.0.4_@types+node@18.11.17
+    dev: true
 
   /vite-tsconfig-paths/4.0.3_gl4qsmwzp7wy5uclz4tx77gbli:
     resolution: {integrity: sha512-gRO2Q/tOkV+9kMht5tz90+IaEKvW2zCnvwJV3tp2ruPNZOTM5rF+yXorJT4ggmAMYEaJ3nyXjx5P5jY5FwiZ+A==}
