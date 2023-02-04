@@ -2,7 +2,7 @@ import { useRouter } from '@core/hooks';
 import { PopoutRoute } from '@core/models';
 import { $ui } from '@core/modules/ui';
 import { useStore } from 'effector-react';
-import React, { memo, useEffect, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 import { popoutLayout } from './PopoutLayout.css';
 import { LoadingPopout } from './popouts';
 
