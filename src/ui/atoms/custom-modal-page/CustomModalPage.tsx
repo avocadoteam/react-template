@@ -1,5 +1,5 @@
+import { back } from '@blumjs/router';
 import { ModalRoute } from '@core/models';
-import { back } from '@core/modules/router';
 import { Icon24Dismiss } from '@vkontakte/icons';
 import { ModalPage, ModalPageHeader, PanelHeaderButton, PanelHeaderClose, Platform, usePlatform } from '@vkontakte/vkui';
 import { memo, useCallback } from 'react';

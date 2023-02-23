@@ -37,7 +37,7 @@ export const createRequest = async <ResponseData, ReturnData>(
     return successData ? successData : !!transformation ? transformation(res) : res;
   } catch (e: any) {
     setSnackbar({
-      type: 'failed',
+      type: 'error',
       message: (e as object).hasOwnProperty('message')
         ? //@ts-ignore
           (e as object).message

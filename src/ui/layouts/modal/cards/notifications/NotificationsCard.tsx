@@ -1,6 +1,6 @@
+import { back } from '@blumjs/router';
 import { ModalRoute } from '@core/models';
 import { subscribeNotification } from '@core/modules/main';
-import { back } from '@core/modules/router';
 import { CustomButton, CustomModalCard } from '@ui/atoms';
 import { typography } from '@ui/theme';
 import { Icon56NotificationOutline } from '@vkontakte/icons';

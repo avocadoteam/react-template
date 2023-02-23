@@ -1,32 +1,30 @@
-import { PanelRoute, PopoutRoute } from '@core/models';
+import { createDisableBackBrowserRouteMiddleware, createRouteMiddleware, useInitRouter } from '@blumjs/router';
+import { PanelRoute, PopoutRoute, ViewRoute } from '@core/models';
 import { closeApp } from '@core/vk-bridge';
 import { useConnection } from './useConnection';
 import { useResize } from './useResize';
-import { createDisableBackBrowserRouteMiddleware, createRouteMiddleware, useInitRouter } from './useRoutes';
 import { useTheme } from './useTheme';
 import { useVKStorage } from './useVKStorage';
 
 export const useAppInit = () => {
   useInitRouter(
-    createRouteMiddleware((storeRoutes, hashRoutes) => {
-      return (
-        storeRoutes.view !== hashRoutes.view ||
-        storeRoutes.panel !== hashRoutes.panel ||
-        storeRoutes.modal !== hashRoutes.modal ||
-        storeRoutes.popout !== hashRoutes.modal
-      );
-    }),
+    {
+      view: ViewRoute.Main,
+      panel: PanelRoute.Home,
+      modal: null,
+      popout: null,
+    },
     createDisableBackBrowserRouteMiddleware(PopoutRoute.Loading),
     createDisableBackBrowserRouteMiddleware(PanelRoute.Home, closeApp),
     createRouteMiddleware(storeRoutes => {
-      if (!window.location.hash) {
+      if (!window.history.state || window.history.state.view === undefined) {
         closeApp();
         return false;
       }
       if (navigator.onLine) {
         return true;
       }
-      window.location.assign(`#${storeRoutes.view}/${storeRoutes.panel}/null/null`);
+      window.history.pushState({ ...storeRoutes, modal: null, popout: null }, '');
       return false;
     }),
   );

@@ -1,7 +1,6 @@
-import { useRouter } from '@core/hooks';
+import { back, setActivePopout, useRouter } from '@blumjs/router';
 import { PanelRoute, PopoutRoute } from '@core/models';
 import { $main } from '@core/modules/main';
-import { back, setActivePopout } from '@core/modules/router';
 import { vkBridge } from '@core/vk-bridge';
 import { useStore } from 'effector-react';
 import { useEffect } from 'react';

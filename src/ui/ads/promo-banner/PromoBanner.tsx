@@ -1,4 +1,5 @@
-import { useInterval, useRouter } from '@core/hooks';
+import { useRouter } from '@blumjs/router';
+import { useInterval } from '@core/hooks';
 import { PanelRoute } from '@core/models';
 import { $main } from '@core/modules/main';
 import { vkBridge } from '@core/vk-bridge';

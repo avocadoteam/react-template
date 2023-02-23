@@ -1,6 +1,6 @@
+import { setActiveModal } from '@blumjs/router';
 import { ModalRoute, PanelRoute } from '@core/models';
 import { $main, unsubscribeNotification } from '@core/modules/main';
-import { setActiveModal } from '@core/modules/router';
 import { setSnackbar } from '@core/modules/ui';
 import { shareLink } from '@core/vk-bridge';
 import { CustomPanel } from '@ui/atoms';

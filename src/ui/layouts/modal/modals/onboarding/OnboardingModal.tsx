@@ -1,6 +1,6 @@
+import { back } from '@blumjs/router';
 import { ModalRoute } from '@core/models';
 import { checkOnboardingEffect } from '@core/modules/main';
-import { back } from '@core/modules/router';
 import { CustomButton, CustomModalPage } from '@ui/atoms';
 import { typography } from '@ui/theme/typography.css';
 import { memo, useCallback } from 'react';

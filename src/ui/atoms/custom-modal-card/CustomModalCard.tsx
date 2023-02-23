@@ -1,5 +1,5 @@
+import { back } from '@blumjs/router';
 import { ModalRoute } from '@core/models';
-import { back } from '@core/modules/router';
 import { ModalCard } from '@vkontakte/vkui';
 import { memo, useCallback } from 'react';
 import { actionsStyle } from './CustomModalCard.css';

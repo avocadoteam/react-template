@@ -1,4 +1,4 @@
-import { useRouter } from '@core/hooks';
+import { useRouter } from '@blumjs/router';
 import { PopoutRoute } from '@core/models';
 import { $ui } from '@core/modules/ui';
 import { useStore } from 'effector-react';
@@ -12,7 +12,7 @@ export const PopoutLayout = memo(() => {
   const [popout, setPopout] = useState<null | React.ReactNode>(null);
   useEffect(() => {
     if (activePopout) {
-      setPopout(popouts[activePopout]);
+      setPopout(popouts[activePopout as keyof typeof PopoutRoute]);
     } else {
       setPopout(null);
     }

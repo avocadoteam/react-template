@@ -1,6 +1,5 @@
-import { useRouter } from '@core/hooks';
+import { back, useRouter } from '@blumjs/router';
 import { ModalRoute } from '@core/models';
-import { back } from '@core/modules/router';
 import { ModalRoot } from '@vkontakte/vkui';
 import { memo, useCallback } from 'react';
 import { NotificationsCard } from './cards';

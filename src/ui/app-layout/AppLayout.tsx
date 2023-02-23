@@ -1,4 +1,4 @@
-import { useRouter } from '@core/hooks';
+import { useRouter } from '@blumjs/router';
 import { ViewRoute } from '@core/models';
 import { ConnectionErrorLayout } from '@ui/layouts/connection-error';
 import { MainLayout } from '@ui/layouts/main';
@@ -8,13 +8,16 @@ import { AppRoot, Root, SplitCol, SplitLayout } from '@vkontakte/vkui';
 import { memo } from 'react';
 
 export const AppLayout = memo(() => {
-  const { activeView, activePopout } = useRouter();
+  const { activeView, activePopout, isRouteInit } = useRouter();
+  if (!isRouteInit) {
+    return <></>;
+  }
 
   return (
     <AppRoot>
       <SplitLayout modal={<ModalLayout />} popout={activePopout ? <PopoutLayout /> : null}>
         <SplitCol animate>
-          <Root activeView={activeView}>
+          <Root activeView={activeView as keyof typeof ViewRoute}>
             <MainLayout id={ViewRoute.Main} />
             <ConnectionErrorLayout id={ViewRoute.ConnectionError} />
           </Root>

@@ -1,6 +1,5 @@
-import { useRouter } from '@core/hooks';
-import { ViewRoute } from '@core/models';
-import { back } from '@core/modules/router';
+import { back, useRouter } from '@blumjs/router';
+import { PanelRoute, ViewRoute } from '@core/models';
 import { View } from '@vkontakte/vkui';
 import { memo, useCallback } from 'react';
 
@@ -16,7 +15,7 @@ export const CustomLayout = memo<Props>(({ id, children }) => {
   }, []);
 
   return (
-    <View onSwipeBack={handleSwipeBack} activePanel={activePanel} id={id}>
+    <View onSwipeBack={handleSwipeBack} activePanel={activePanel as keyof typeof PanelRoute} id={id}>
       {children}
     </View>
   );
