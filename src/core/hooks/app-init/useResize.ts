@@ -1,5 +1,5 @@
+import { useEventListener } from '@blumjs/hooks';
 import { setDimensions } from '@core/modules/ui';
-import { useEventListener } from '../useEventListener';
 
 export const useResize = () => {
   useEventListener('resize', () => {

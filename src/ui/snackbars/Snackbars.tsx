@@ -1,4 +1,5 @@
-import { useTimeout, useUI } from '@core/hooks';
+import { useTimeout } from '@blumjs/hooks';
+import { useUI } from '@core/hooks';
 import { setSnackbar } from '@core/modules/ui';
 import { typography } from '@ui/theme/typography.css';
 import { Snackbar } from '@vkontakte/vkui';

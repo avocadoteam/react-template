@@ -1,4 +1,4 @@
-import { useIntersectionObserver } from '@core/hooks';
+import { useIntersectionObserver } from '@blumjs/hooks';
 import { Spinner } from '@vkontakte/vkui';
 import { ComponentProps, forwardRef, LegacyRef, useEffect } from 'react';
 import { listItems } from './ListItems.css';

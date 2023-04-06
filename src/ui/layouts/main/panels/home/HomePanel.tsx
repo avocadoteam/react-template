@@ -38,6 +38,7 @@ export const HomePanel = memo<Props>(({ id }) => {
     }
     setActiveModal(ModalRoute.Notifications);
   }, [isUserSubscribedNotification]);
+
   return (
     <CustomPanel id={id}>
       <div className={home}>
