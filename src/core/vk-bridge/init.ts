@@ -1,8 +1,8 @@
 import { back, setActiveModal, setActivePopout } from '@blumjs/router';
+import { getSearchParams } from '@blumjs/utils';
 import { ModalRoute, PopoutRoute, StorageKey } from '@core/models';
 import { checkOnboardingEvent, setAppInit, setUserSubscribedNotification } from '@core/modules/main';
 import { setAppearance } from '@core/modules/ui';
-import { getSearchParams } from '@core/utils';
 import { DefaultUpdateConfigData } from '@vkontakte/vk-bridge';
 import { getStorage } from './api';
 import { vkBridge } from './instance';
