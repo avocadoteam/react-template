@@ -1,6 +1,7 @@
+import { allowNotification, denyNotification } from '@blumjs/bridge';
 import { back, setActivePopout } from '@blumjs/router';
 import { PopoutRoute, StorageKey } from '@core/models';
-import { allowNotification, denyNotification, setStorageValue } from '@core/vk-bridge';
+import { setStorageValue } from '@core/vk-bridge';
 import { createEffect, forward } from 'effector';
 import { setSnackbar } from '../ui';
 import { checkOnboardingEvent } from './events';

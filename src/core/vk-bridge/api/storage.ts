@@ -1,5 +1,5 @@
+import { vkBridge } from '@blumjs/bridge';
 import { StorageKey } from '@core/models';
-import { vkBridge } from '../instance';
 
 export const setStorageValue = ({ key, value }: { key: string; value: any }) => {
   return vkBridge

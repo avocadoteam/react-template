@@ -1,8 +1,8 @@
+import { vkBridge } from '@blumjs/bridge';
 import { useInterval } from '@blumjs/hooks';
 import { useRouter } from '@blumjs/router';
 import { PanelRoute } from '@core/models';
 import { $main } from '@core/modules/main';
-import { vkBridge } from '@core/vk-bridge';
 import { PromoBanner as VKPromoBanner } from '@vkontakte/vkui';
 import { useStore } from 'effector-react';
 import { memo, useCallback, useMemo, useState } from 'react';

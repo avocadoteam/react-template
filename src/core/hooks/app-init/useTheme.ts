@@ -1,5 +1,5 @@
+import { vkBridge } from '@blumjs/bridge';
 import { $ui } from '@core/modules/ui';
-import { vkBridge } from '@core/vk-bridge';
 import { darkTheme, lightTheme, vars } from '@ui/theme';
 import { useStore } from 'effector-react';
 import { useEffect } from 'react';

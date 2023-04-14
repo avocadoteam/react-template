@@ -1,3 +1,4 @@
+import { vkBridge } from '@blumjs/bridge';
 import { back, setActiveModal, setActivePopout } from '@blumjs/router';
 import { getSearchParams } from '@blumjs/utils';
 import { ModalRoute, PopoutRoute, StorageKey } from '@core/models';
@@ -5,7 +6,6 @@ import { checkOnboardingEvent, setAppInit, setUserSubscribedNotification } from 
 import { setAppearance } from '@core/modules/ui';
 import { DefaultUpdateConfigData } from '@vkontakte/vk-bridge';
 import { getStorage } from './api';
-import { vkBridge } from './instance';
 
 export const vkBridgeInit = () => {
   vkBridge.subscribe(async ({ detail }) => {

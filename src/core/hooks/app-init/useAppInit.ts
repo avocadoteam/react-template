@@ -1,6 +1,6 @@
+import { closeApp } from '@blumjs/bridge';
 import { createDisableBackBrowserRouteMiddleware, createRouteMiddleware, useInitRouter } from '@blumjs/router';
 import { PanelRoute, PopoutRoute, ViewRoute } from '@core/models';
-import { closeApp } from '@core/vk-bridge';
 import { useConnection } from './useConnection';
 import { useResize } from './useResize';
 import { useTheme } from './useTheme';
