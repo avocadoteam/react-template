@@ -14,13 +14,13 @@ export const iconButton = recipe({
     cursor: 'pointer',
   },
   variants: {
-    type: {
+    scheme: {
       primary: vars.all.btn.primary,
       negative: vars.all.btn.negative,
       transparent: vars.all.btn.transparent,
     },
   },
   defaultVariants: {
-    type: 'primary',
+    scheme: 'primary',
   },
 });

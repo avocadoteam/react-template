@@ -9,7 +9,7 @@ export const btn = recipe({
     borderRadius: '20px !important',
   },
   variants: {
-    type: {
+    scheme: {
       primary: {
         color: `${vars.all.btn.primary.color} !important`,
         background: `${vars.all.btn.primary.background} !important`,
@@ -25,6 +25,6 @@ export const btn = recipe({
     },
   },
   defaultVariants: {
-    type: 'primary',
+    scheme: 'primary',
   },
 });

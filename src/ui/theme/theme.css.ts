@@ -47,6 +47,9 @@ const elementsContract = createThemeContract({
   snackbar: {
     color: null,
     background: null,
+    success: null,
+    info: null,
+    error: null,
   },
   gray: {
     [100]: null,
@@ -93,6 +96,9 @@ export const lightTheme = createTheme(elementsContract, {
   snackbar: {
     color: palette.light.gray[600],
     background: 'rgba(255, 255, 255)',
+    success: 'rgb(75, 179, 75)',
+    info: 'rgb(38, 136, 235)',
+    error: 'rgb(230, 70, 70)',
   },
   gray: palette.light.gray,
 });
@@ -129,6 +135,9 @@ export const darkTheme = createTheme(elementsContract, {
   snackbar: {
     color: palette.dark.gray[600],
     background: 'rgb(25, 25, 26)',
+    success: 'rgb(75, 179, 75)',
+    info: 'rgb(38, 136, 235)',
+    error: 'rgb(230, 70, 70)',
   },
   gray: palette.dark.gray,
 });

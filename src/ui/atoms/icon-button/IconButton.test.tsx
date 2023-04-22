@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react';
+import { vi } from 'vitest';
 import { clickableDiv } from '../clickable-div/ClickableDiv.css';
 import { IconButton } from './IconButton';
 import { iconButton } from './IconButton.css';
-import { vi } from 'vitest';
 
 describe('IconButton component', () => {
   let wrapper: HTMLElement;
@@ -16,27 +16,27 @@ describe('IconButton component', () => {
   test('render children', () => {
     expect(screen.getByText('Icon')).toBeInTheDocument();
   });
-  test(`className equal to "${clickableDiv({ clickable: true })} ${iconButton({ type: 'primary' })}"`, () => {
-    expect(wrapper.className).toEqual(`${clickableDiv({ clickable: true })} ${iconButton({ type: 'primary' })}`);
+  test(`className equal to "${clickableDiv({ clickable: true })} ${iconButton({ scheme: 'primary' })}"`, () => {
+    expect(wrapper.className).toEqual(`${clickableDiv({ clickable: true })} ${iconButton({ scheme: 'primary' })}`);
   });
   test(`className with prop type negative equal to "${clickableDiv({ clickable: true })} ${iconButton({
-    type: 'negative',
+    scheme: 'negative',
   })}"`, () => {
     render(
-      <IconButton dataTestId="1" type="negative" onClick={vi.fn()}>
+      <IconButton dataTestId="1" scheme="negative" onClick={vi.fn()}>
         1
       </IconButton>,
     );
     const wrapper = screen.getByTestId('1');
-    expect(wrapper.className).toEqual(`${clickableDiv({ clickable: true })} ${iconButton({ type: 'negative' })}`);
+    expect(wrapper.className).toEqual(`${clickableDiv({ clickable: true })} ${iconButton({ scheme: 'negative' })}`);
   });
-  test(`className equal to "${clickableDiv({ clickable: true })} ${iconButton({ type: 'transparent' })}"`, () => {
+  test(`className equal to "${clickableDiv({ clickable: true })} ${iconButton({ scheme: 'transparent' })}"`, () => {
     render(
-      <IconButton dataTestId="1" type="transparent" onClick={vi.fn()}>
+      <IconButton dataTestId="1" scheme="transparent" onClick={vi.fn()}>
         1
       </IconButton>,
     );
     const wrapper = screen.getByTestId('1');
-    expect(wrapper.className).toEqual(`${clickableDiv({ clickable: true })} ${iconButton({ type: 'transparent' })}`);
+    expect(wrapper.className).toEqual(`${clickableDiv({ clickable: true })} ${iconButton({ scheme: 'transparent' })}`);
   });
 });

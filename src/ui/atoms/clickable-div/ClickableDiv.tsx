@@ -1,4 +1,5 @@
 import { ComponentProps, forwardRef, LegacyRef } from 'react';
+import { isMobile } from 'react-device-detect';
 import { clickableDiv } from './ClickableDiv.css';
 
 type Props = {
@@ -14,7 +15,7 @@ export const ClickableDiv = forwardRef(
         ref={ref}
         data-testid={dataTestId ?? 'clickable-div'}
         onClick={disabled || !onClick ? () => {} : onClick}
-        className={`${clickableDiv({ clickable: !disabled && !!onClick })} ${className}`}
+        className={`${!disabled && !!onClick ? clickableDiv({ isMobile }) : ''} ${className}`}
       />
     );
   },

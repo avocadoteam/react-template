@@ -1,17 +1,12 @@
 import { back } from '@blumjs/router';
 import { ModalRoute } from '@core/models';
 import { ModalCard } from '@vkontakte/vkui';
-import { memo, useCallback } from 'react';
+import { ComponentProps, memo, useCallback } from 'react';
 import { actionsStyle } from './CustomModalCard.css';
 
 type Props = {
   id: ModalRoute;
-  onClose?: () => void;
-  icon: React.ReactNode;
-  header: React.ReactNode;
-  subheader: React.ReactNode;
-  actions: React.ReactNode;
-};
+} & ComponentProps<typeof ModalCard>;
 
 export const CustomModalCard = memo<Props>(({ id, onClose, icon, header, subheader, actions }) => {
   const handleClose = useCallback(() => {

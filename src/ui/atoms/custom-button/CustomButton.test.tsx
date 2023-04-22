@@ -10,7 +10,7 @@ describe('Test CustomizedButton component', () => {
   let wrapper: HTMLElement;
   beforeEach(() => {
     render(
-      <CustomButton onClick={vi.fn()} type="primary">
+      <CustomButton onClick={vi.fn()} scheme="primary">
         Click me!
       </CustomButton>,
     );
@@ -22,26 +22,30 @@ describe('Test CustomizedButton component', () => {
   test('render children', () => {
     expect(screen.getByText('Click me!')).toBeInTheDocument();
   });
-  test(`className equal to "${btn({ type: 'primary' })} ${typography({ variant: 'btn' })}"`, () => {
-    expect(wrapper.className).toEqual(`${btn({ type: 'primary' })} ${typography({ variant: 'btn' })} ${vkBtnClassName}`);
+  test(`className equal to "${btn({ scheme: 'primary' })} ${typography({ variant: 'btn' })}"`, () => {
+    expect(wrapper.className).toEqual(`${btn({ scheme: 'primary' })} ${typography({ variant: 'btn' })} ${vkBtnClassName}`);
   });
-  test(`className with prop type negative equal to "${btn({ type: 'negative' })} ${typography({ variant: 'btn' })}"`, () => {
+  test(`className with prop type negative equal to "${btn({ scheme: 'negative' })} ${typography({
+    variant: 'btn',
+  })}"`, () => {
     render(
-      <CustomButton dataTestId="1" type="negative" onClick={vi.fn()}>
+      <CustomButton dataTestId="1" scheme="negative" onClick={vi.fn()}>
         1
       </CustomButton>,
     );
     const wrapper = screen.getByTestId('1');
-    expect(wrapper.className).toEqual(`${btn({ type: 'negative' })} ${typography({ variant: 'btn' })} ${vkBtnClassName}`);
+    expect(wrapper.className).toEqual(`${btn({ scheme: 'negative' })} ${typography({ variant: 'btn' })} ${vkBtnClassName}`);
   });
-  test(`className equal to "${btn({ type: 'transparent' })} ${typography({ variant: 'btn' })}"`, () => {
+  test(`className equal to "${btn({ scheme: 'transparent' })} ${typography({ variant: 'btn' })}"`, () => {
     render(
-      <CustomButton dataTestId="1" type="transparent" onClick={vi.fn()}>
+      <CustomButton dataTestId="1" scheme="transparent" onClick={vi.fn()}>
         1
       </CustomButton>,
     );
     const wrapper = screen.getByTestId('1');
-    expect(wrapper.className).toEqual(`${btn({ type: 'transparent' })} ${typography({ variant: 'btn' })} ${vkBtnClassName}`);
+    expect(wrapper.className).toEqual(
+      `${btn({ scheme: 'transparent' })} ${typography({ variant: 'btn' })} ${vkBtnClassName}`,
+    );
   });
   test('handle click', () => {
     let i = 0;

@@ -1,7 +1,9 @@
 import { useTimeout } from '@blumjs/hooks';
 import { useUI } from '@core/hooks';
 import { setSnackbar } from '@core/modules/ui';
+import { vars } from '@ui/theme';
 import { typography } from '@ui/theme/typography.css';
+import { Icon28CheckCircleOutline, Icon28ErrorCircleOutline, Icon28MessageOutline } from '@vkontakte/icons';
 import { Snackbar } from '@vkontakte/vkui';
 import { memo, useCallback } from 'react';
 import { snackbar as snackbarStyle } from './Snackbars.css';
@@ -29,7 +31,7 @@ export const Snackbars = memo(() => {
 });
 
 const snackIcons = {
-  success: <></>,
-  error: <></>,
-  info: <></>,
+  success: <Icon28CheckCircleOutline fill={vars.all.snackbar.success} />,
+  error: <Icon28ErrorCircleOutline fill={vars.all.snackbar.error} />,
+  info: <Icon28MessageOutline fill={vars.all.snackbar.info} />,
 };

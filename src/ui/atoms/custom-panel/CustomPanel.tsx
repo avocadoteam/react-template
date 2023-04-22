@@ -1,14 +1,11 @@
 import { useUI } from '@core/hooks';
 import { PanelRoute } from '@core/models';
 import { Panel } from '@vkontakte/vkui';
-import { memo } from 'react';
+import { ComponentProps, memo } from 'react';
 
 type Props = {
   id: PanelRoute;
-  className?: string;
-  style?: object;
-  children?: React.ReactNode;
-};
+} & ComponentProps<typeof Panel>;
 
 export const CustomPanel = memo<Props>(({ id, className, style, children }) => {
   const { dimensions } = useUI();

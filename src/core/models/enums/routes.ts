@@ -6,7 +6,6 @@ export enum ViewRoute {
 
 export enum PanelRoute {
   Home = 'Home',
-
   Offline = 'Offline',
 }
 
