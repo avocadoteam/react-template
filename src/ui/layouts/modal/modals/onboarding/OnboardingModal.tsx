@@ -19,7 +19,7 @@ export const OnboardingModal = memo<Props>(({ id }) => {
   return (
     <CustomModalPage onClose={handleClose} id={id}>
       <div className={onboardingModal}>
-        <div className={typography({ onboarding: 'header' })}>App on Blue Meteor mean:</div>
+        <div className={typography({ onboarding: 'header' })}>App with blumjs mean:</div>
         <div className={`${onboardingModalList} ${typography({ onboarding: 'listItem' })}`}>
           <div>- Make it easy</div>
           <div>- Make it fast</div>

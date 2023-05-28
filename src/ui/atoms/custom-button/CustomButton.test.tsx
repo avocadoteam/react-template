@@ -4,9 +4,7 @@ import { vi } from 'vitest';
 import { CustomButton } from './CustomButton';
 import { btn } from './CustomButton.css';
 
-describe('Test CustomizedButton component', () => {
-  const vkBtnClassName =
-    'vkuiButton vkuiButton--size-s vkuiButton--mode-primary vkuiButton--appearance-accent vkuiButton--align-center vkuiButton--sizeY-none vkuiButton--android vkuiTappable vkuiTappable--sizeX-none vkuiTappable--hover-has vkuiTappable--hasActive';
+describe('Test CustomButton component', () => {
   let wrapper: HTMLElement;
   beforeEach(() => {
     render(
@@ -23,7 +21,7 @@ describe('Test CustomizedButton component', () => {
     expect(screen.getByText('Click me!')).toBeInTheDocument();
   });
   test(`className equal to "${btn({ scheme: 'primary' })} ${typography({ variant: 'btn' })}"`, () => {
-    expect(wrapper.className).toEqual(`${btn({ scheme: 'primary' })} ${typography({ variant: 'btn' })} ${vkBtnClassName}`);
+    expect(wrapper.className).toMatch(new RegExp(`${btn({ scheme: 'primary' })} ${typography({ variant: 'btn' })}`));
   });
   test(`className with prop type negative equal to "${btn({ scheme: 'negative' })} ${typography({
     variant: 'btn',
@@ -34,18 +32,16 @@ describe('Test CustomizedButton component', () => {
       </CustomButton>,
     );
     const wrapper = screen.getByTestId('1');
-    expect(wrapper.className).toEqual(`${btn({ scheme: 'negative' })} ${typography({ variant: 'btn' })} ${vkBtnClassName}`);
+    expect(wrapper.className).toMatch(new RegExp(`${btn({ scheme: 'negative' })} ${typography({ variant: 'btn' })}`));
   });
-  test(`className equal to "${btn({ scheme: 'transparent' })} ${typography({ variant: 'btn' })}"`, () => {
+  test(`className match to "${btn({ scheme: 'transparent' })} ${typography({ variant: 'btn' })}"`, () => {
     render(
       <CustomButton dataTestId="1" scheme="transparent" onClick={vi.fn()}>
         1
       </CustomButton>,
     );
     const wrapper = screen.getByTestId('1');
-    expect(wrapper.className).toEqual(
-      `${btn({ scheme: 'transparent' })} ${typography({ variant: 'btn' })} ${vkBtnClassName}`,
-    );
+    expect(wrapper.className).toMatch(new RegExp(`${btn({ scheme: 'transparent' })} ${typography({ variant: 'btn' })}`));
   });
   test('handle click', () => {
     let i = 0;

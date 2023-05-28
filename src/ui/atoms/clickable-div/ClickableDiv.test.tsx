@@ -1,4 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react';
+import { vi } from 'vitest';
 import { ClickableDiv } from './ClickableDiv';
 import { clickableDiv } from './ClickableDiv.css';
 
@@ -14,8 +15,8 @@ describe('ClickableDiv component', () => {
   test('text of component equal to "Click"', () => {
     expect(screen.getByText('Click')).toBeInTheDocument();
   });
-  test(`className equal to "${clickableDiv({ clickable: false })} undefined"`, () => {
-    expect(wrapper.className).toEqual(`${clickableDiv({ clickable: false })} undefined`);
+  test(`className equal to " undefined"`, () => {
+    expect(wrapper.className).toEqual(` undefined`);
   });
   test('handle click', () => {
     let i = 0;
@@ -37,16 +38,16 @@ describe('ClickableDiv component', () => {
 
     expect(i).toEqual(0);
   });
-  test(`className with onClick equal to "${clickableDiv({ clickable: true })} undefined"`, () => {
-    render(<ClickableDiv onClick={() => console.log('click')} dataTestId="1" />);
+  test(`className with onClick equal to "${clickableDiv({ isMobile: false })} undefined"`, () => {
+    render(<ClickableDiv onClick={vi.fn()} dataTestId="1" />);
     const wrapper = screen.getByTestId('1');
 
-    expect(wrapper.className).toEqual(`${clickableDiv({ clickable: true })} undefined`);
+    expect(wrapper.className).toEqual(`${clickableDiv({ isMobile: false })} undefined`);
   });
-  test(`className with prop className "3" equal to "${clickableDiv({ clickable: false })} 3"`, () => {
+  test(`className with prop className "3" equal to " 3"`, () => {
     render(<ClickableDiv className="3" dataTestId="1" />);
     const wrapper = screen.getByTestId('1');
 
-    expect(wrapper.className).toEqual(`${clickableDiv({ clickable: false })} 3`);
+    expect(wrapper.className).toEqual(` 3`);
   });
 });

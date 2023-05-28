@@ -9,7 +9,7 @@ import { tab } from './Tab.css';
 describe('TabDefault component', () => {
   let wrapper: HTMLElement;
   beforeEach(() => {
-    render(<TabDefault onClick={vi.fn()}>default</TabDefault>);
+    render(<TabDefault onClick={vi.fn}>default</TabDefault>);
     wrapper = screen.getByTestId('tab-default');
   });
   test('render tab-default', () => {
@@ -18,11 +18,11 @@ describe('TabDefault component', () => {
   test('text of component equal to "default"', () => {
     expect(screen.getByText('default')).toBeInTheDocument();
   });
-  test(`className equal to "${clickableDiv({ clickable: true })} ${divCenter} ${tab({ type: 'default' })} ${typography({
+  test(`className equal to "${clickableDiv()} ${divCenter} ${tab({ type: 'default' })} ${typography({
     variant: 'tab',
   })}"`, () => {
     expect(wrapper.className).toEqual(
-      `${clickableDiv({ clickable: true })} ${divCenter} ${tab({ type: 'default' })} ${typography({
+      `${clickableDiv()} ${divCenter} ${tab({ type: 'default' })} ${typography({
         variant: 'tab',
       })}`,
     );

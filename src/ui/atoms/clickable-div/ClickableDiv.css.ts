@@ -65,6 +65,6 @@ export const clickableDiv = recipe({
     },
   },
   defaultVariants: {
-    isMobile: true,
+    isMobile: false,
   },
 });

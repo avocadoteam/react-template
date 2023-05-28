@@ -1,5 +1,4 @@
 import { render, screen } from '@testing-library/react';
-import { clickableDiv } from '../clickable-div/ClickableDiv.css';
 import { customDiv } from '../custom-div/CustomDiv.css';
 import { CustomCell } from './CustomCell';
 import { cell, cellSpaceBetween } from './CustomCell.css';
@@ -18,8 +17,8 @@ describe('CustomCell component', () => {
   test('render component', () => {
     expect(wrapper).toBeInTheDocument();
   });
-  test(`className equal to "${clickableDiv({ clickable: false })} ${customDiv} ${cell} undefined"`, () => {
-    expect(wrapper.className).toEqual(`${clickableDiv({ clickable: false })} ${customDiv} ${cell} undefined`);
+  test(`className equal to " ${customDiv} ${cell} undefined"`, () => {
+    expect(wrapper.className).toEqual(` ${customDiv} ${cell} undefined`);
   });
   test('style equal to {paddingTop: 1px, paddingBottom: 2px, paddingLeft: 3px, paddingRight: 4px }', () => {
     expect(wrapper.style).toMatchObject({

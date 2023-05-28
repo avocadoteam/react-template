@@ -1,5 +1,4 @@
 import { render, screen } from '@testing-library/react';
-import { clickableDiv } from '@ui/atoms/clickable-div/ClickableDiv.css';
 import { divCenter } from '@ui/atoms/div-center/DivCenter.css';
 import { typography } from '@ui/theme';
 import { TabActive } from './Tab';
@@ -17,11 +16,11 @@ describe('TabActive component', () => {
   test('text of component equal to "active"', () => {
     expect(screen.getByText('active')).toBeInTheDocument();
   });
-  test(`className equal to "${clickableDiv({ clickable: false })} ${divCenter} ${tab({ type: 'active' })} ${typography({
+  test(`className equal to " ${divCenter} ${tab({ type: 'active' })} ${typography({
     variant: 'tab',
   })}"`, () => {
     expect(wrapper.className).toEqual(
-      `${clickableDiv({ clickable: false })} ${divCenter} ${tab({ type: 'active' })} ${typography({
+      ` ${divCenter} ${tab({ type: 'active' })} ${typography({
         variant: 'tab',
       })}`,
     );

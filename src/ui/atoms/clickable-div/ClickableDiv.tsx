@@ -15,7 +15,9 @@ export const ClickableDiv = forwardRef(
         ref={ref}
         data-testid={dataTestId ?? 'clickable-div'}
         onClick={disabled || !onClick ? () => {} : onClick}
-        className={`${!disabled && !!onClick ? clickableDiv({ isMobile }) : ''} ${className}`}
+        className={`${
+          !disabled && !!onClick ? clickableDiv({ isMobile: typeof isMobile == 'boolean' ? isMobile : false }) : ''
+        } ${className}`}
       />
     );
   },

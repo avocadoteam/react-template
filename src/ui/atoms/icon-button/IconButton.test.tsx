@@ -16,27 +16,33 @@ describe('IconButton component', () => {
   test('render children', () => {
     expect(screen.getByText('Icon')).toBeInTheDocument();
   });
-  test(`className equal to "${clickableDiv({ clickable: true })} ${iconButton({ scheme: 'primary' })}"`, () => {
-    expect(wrapper.className).toEqual(`${clickableDiv({ clickable: true })} ${iconButton({ scheme: 'primary' })}`);
+  test(`className equal to "${clickableDiv({ isMobile: false })} ${iconButton({ scheme: 'primary' })} undefined"`, () => {
+    expect(wrapper.className).toEqual(`${clickableDiv({ isMobile: false })} ${iconButton({ scheme: 'primary' })} undefined`);
   });
-  test(`className with prop type negative equal to "${clickableDiv({ clickable: true })} ${iconButton({
+  test(`className with prop type negative equal to "${clickableDiv({ isMobile: false })} ${iconButton({
     scheme: 'negative',
-  })}"`, () => {
+  })} undefined"`, () => {
     render(
       <IconButton dataTestId="1" scheme="negative" onClick={vi.fn()}>
         1
       </IconButton>,
     );
     const wrapper = screen.getByTestId('1');
-    expect(wrapper.className).toEqual(`${clickableDiv({ clickable: true })} ${iconButton({ scheme: 'negative' })}`);
+    expect(wrapper.className).toEqual(
+      `${clickableDiv({ isMobile: false })} ${iconButton({ scheme: 'negative' })} undefined`,
+    );
   });
-  test(`className equal to "${clickableDiv({ clickable: true })} ${iconButton({ scheme: 'transparent' })}"`, () => {
+  test(`className equal to "${clickableDiv({ isMobile: false })} ${iconButton({
+    scheme: 'transparent',
+  })} undefined"`, () => {
     render(
       <IconButton dataTestId="1" scheme="transparent" onClick={vi.fn()}>
         1
       </IconButton>,
     );
     const wrapper = screen.getByTestId('1');
-    expect(wrapper.className).toEqual(`${clickableDiv({ clickable: true })} ${iconButton({ scheme: 'transparent' })}`);
+    expect(wrapper.className).toEqual(
+      `${clickableDiv({ isMobile: false })} ${iconButton({ scheme: 'transparent' })} undefined`,
+    );
   });
 });

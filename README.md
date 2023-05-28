@@ -1,6 +1,8 @@
-[<img width="134" src="https://webstockreview.net/images/comet-clipart-meteorite-4.png">](https://vk.com/services)
+<div align="center">
+    <img src="https://drive.google.com/uc?export=view&id=14_MxI0TSoz8wK9e-f8BHzworUfehaZz3"/>
+</div>
 
-# Blue-Meteor Template v1.0
+# Blumjs Template v2.0
 
 ## How to start work with app
 
@@ -11,6 +13,5 @@ Go to created folder and run:
 
 [npm]: https://img.shields.io/npm/v/@vkontakte/create-vk-mini-app.svg
 [npm-url]: https://npmjs.com/package/@vkontakte/create-vk-mini-app
-
 [deps]: https://img.shields.io/david/vkcom/create-vk-mini-app.svg
 [deps-url]: https://david-dm.org/vkcom/create-vk-mini-app

@@ -15,10 +15,10 @@ describe('CustomDiv component', () => {
   test('text of component equal to "JoJo"', () => {
     expect(screen.getByText('JoJo')).toBeInTheDocument();
   });
-  test(`className equal to "${clickableDiv({ clickable: false })} ${customDiv} undefined"`, () => {
-    expect(wrapper.className).toEqual(`${clickableDiv({ clickable: false })} ${customDiv} undefined`);
+  test(`className equal to " ${customDiv} undefined"`, () => {
+    expect(wrapper.className).toEqual(` ${customDiv} undefined`);
   });
-  test(`className with prop className "1" equal to "${clickableDiv({ clickable: false })} ${customDiv} 1"`, () => {
+  test(`className with prop className "1" equal to "${clickableDiv({ isMobile: false })} ${customDiv} 1"`, () => {
     render(
       <CustomDiv className="1" dataTestId="1">
         JoJo
@@ -26,6 +26,6 @@ describe('CustomDiv component', () => {
     );
     const wrapper = screen.getByTestId('1');
 
-    expect(wrapper.className).toEqual(`${clickableDiv({ clickable: false })} ${customDiv} 1`);
+    expect(wrapper.className).toEqual(` ${customDiv} 1`);
   });
 });

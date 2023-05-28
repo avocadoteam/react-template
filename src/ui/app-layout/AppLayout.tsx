@@ -18,8 +18,8 @@ export const AppLayout = memo(() => {
       <SplitLayout modal={<ModalLayout />} popout={activePopout ? <PopoutLayout /> : null}>
         <SplitCol animate>
           <Root activeView={activeView as keyof typeof ViewRoute}>
-            <MainLayout id={ViewRoute.Main} />
             <ConnectionErrorLayout id={ViewRoute.ConnectionError} />
+            <MainLayout id={ViewRoute.Main} />
           </Root>
         </SplitCol>
       </SplitLayout>

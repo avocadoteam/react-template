@@ -5,7 +5,7 @@ import { ComponentProps, memo, useCallback } from 'react';
 
 type Props = {
   id: ViewRoute;
-} & ComponentProps<typeof View>;
+} & Partial<ComponentProps<typeof View>>;
 
 export const CustomLayout = memo<Props>(({ id, children }) => {
   const { activePanel } = useRouter();

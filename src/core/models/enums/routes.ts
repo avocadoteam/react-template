@@ -1,7 +1,6 @@
 export enum ViewRoute {
-  Main = 'Main',
-
   ConnectionError = 'ConnectionError',
+  Main = 'Main',
 }
 
 export enum PanelRoute {
