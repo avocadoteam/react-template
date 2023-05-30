@@ -9,7 +9,7 @@ export const useNativeBanner = () => {
   const { activePanel, activePopout } = useRouter();
   const { isAppInit } = useStore($main);
   useEffect(() => {
-    if (activePanel === PanelRoute.Home && vkBridge.supports('VKWebAppShowNativeAds') && isAppInit && !activePopout) {
+    if (process.env.NODE_ENV === "production" && activePanel === PanelRoute.Home && vkBridge.supports('VKWebAppShowNativeAds') && isAppInit && !activePopout) {
       const timerId = setTimeout(() => {
         setActivePopout(PopoutRoute.Loading);
         vkBridge
