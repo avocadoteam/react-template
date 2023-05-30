@@ -20,7 +20,7 @@ export const PromoBanner = memo(() => {
   );
   useInterval(
     () => {
-      if (isAppInit) {
+      if (process.env.NODE_ENV === "production" && isAppInit) {
         panels.forEach((v, i) => {
           (vkBridge as any)
             .send('VKWebAppGetAds', {})
