@@ -9,7 +9,13 @@ export const useNativeBanner = () => {
   const { activePanel, activePopout } = useRouter();
   const { isAppInit } = useStore($main);
   useEffect(() => {
-    if (process.env.NODE_ENV === "production" && activePanel === PanelRoute.Home && vkBridge.supports('VKWebAppShowNativeAds') && isAppInit && !activePopout) {
+    if (
+      process.env.NODE_ENV === 'production' &&
+      activePanel === PanelRoute.Home &&
+      vkBridge.supports('VKWebAppShowNativeAds') &&
+      isAppInit &&
+      !activePopout
+    ) {
       const timerId = setTimeout(() => {
         setActivePopout(PopoutRoute.Loading);
         vkBridge
@@ -17,10 +23,11 @@ export const useNativeBanner = () => {
           .send('VKWebAppShowNativeAds', { ad_format: 'interstitial' })
           .then(res => {
             console.log('NativeBanner showed success', res);
-            back();
           })
           .catch(err => {
             console.log('NativeBanner showed failed', err);
+          })
+          .finally(() => {
             back();
           });
         clearTimeout(timerId);
