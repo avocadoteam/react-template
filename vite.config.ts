@@ -6,7 +6,6 @@ import { VitePWA } from 'vite-plugin-pwa';
 import { viteSingleFile } from 'vite-plugin-singlefile';
 import tsconfigPaths from 'vite-tsconfig-paths';
 
-const production = process.env.NODE_ENV === 'production';
 export default defineConfig({
   plugins: [tsconfigPaths(), react(), vanillaExtractPlugin(), VitePWA(), viteSingleFile()],
   build: {
