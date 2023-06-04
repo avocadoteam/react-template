@@ -18,7 +18,7 @@ export const $main = createStore<Store>({
   }))
   .on(checkOnboardingEvent, state => ({
     ...state,
-    isCheckTraining: true,
+    isCheckOnboarding: true,
   }))
   .on(setUserSubscribedNotification, (state, isUserSubscribedNotification) => ({
     ...state,
