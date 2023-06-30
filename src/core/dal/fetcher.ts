@@ -22,7 +22,7 @@ export const createRequest = async <ResponseData, ReturnData>(
 ): Promise<ReturnData> => {
   try {
     const res = await AX[method]<ResponseData>(
-      `${url}${vkQuery}${Object.keys(query ?? {})
+      `${url}${vkQuery}&${Object.keys(query ?? {})
         .map(key => (query ? `${key}=${query[key as keyof typeof query]}` : ''))
         .join('&')}`,
       {

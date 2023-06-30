@@ -1,7 +1,7 @@
 import { vkBridge } from '@blumjs/bridge';
-import { back, setActiveModal, setActivePopout } from '@blumjs/router';
+import { setActiveModal } from '@blumjs/router';
 import { getSearchParams } from '@blumjs/utils';
-import { ModalRoute, PopoutRoute, StorageKey } from '@core/models';
+import { ModalRoute, StorageKey } from '@core/models';
 import { checkOnboardingEvent, setAppInit, setUserSubscribedNotification } from '@core/modules/main';
 import { setAppearance } from '@core/modules/ui';
 import { DefaultUpdateConfigData } from '@vkontakte/vk-bridge';
@@ -28,16 +28,11 @@ export const vkBridgeInit = () => {
 };
 
 export const vkStorageInit = () => {
-  setActivePopout(PopoutRoute.Loading);
-  getStorage(Object.values(StorageKey)).then(res => {
-    back();
-    const timeoutId = setTimeout(async () => {
-      for (let i = 0; i < res.length; i++) {
-        await handleKey(res[i]);
-      }
-      setAppInit(true);
-      clearTimeout(timeoutId);
-    }, 1000);
+  getStorage(Object.values(StorageKey)).then(async res => {
+    for (let i = 0; i < res.length; i++) {
+      await handleKey(res[i]);
+    }
+    setAppInit(true);
   });
 };
 const handleKey = async ({ key, value }: { key: string; value: string }) => {

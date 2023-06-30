@@ -1,5 +1,7 @@
 export const palette = {
   light: {
+    default: 'rgb(249, 249, 249)',
+    deep: 'rgb(255, 255, 255)',
     gray: {
       [100]: 'rgb(203, 203, 203)',
       [200]: 'rgb(193, 193, 193)',
@@ -14,6 +16,8 @@ export const palette = {
     accent: 'rgb(28, 121, 234)',
   },
   dark: {
+    default: 'rgb(36, 36, 36)',
+    deep: 'rgb(25, 25, 25)',
     gray: {
       [100]: 'rgb(150, 150, 150)',
       [200]: 'rgb(179, 179, 179)',
@@ -27,4 +31,13 @@ export const palette = {
     },
     accent: 'rgb(37, 135, 255)',
   },
+};
+
+export const colors = {
+  transparent: 'transparent',
+  gray: new Array(256).fill(null).map((_, i) => `rgb(${i}, ${i}, ${i})`),
+  negative: 'rgb(230, 70, 70)',
+  negativeLight: 'rgb(230, 70, 70, 0.1)',
+  nice: 'rgb(75, 179, 75)',
+  icon: 'rgb(38, 136, 235)',
 };

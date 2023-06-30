@@ -5,11 +5,11 @@ import { cell, cellSpaceBetween } from './CustomCell.css';
 type Props = {
   before: React.ReactNode;
   after: React.ReactNode;
-  pt: number;
-  pb: number;
-  pl: number;
-  pr: number;
-  space: number;
+  pt: number | string;
+  pb: number | string;
+  pl: number | string;
+  pr: number | string;
+  space: number | string;
 } & ComponentProps<typeof CustomDiv>;
 
 export const CustomCell = forwardRef(

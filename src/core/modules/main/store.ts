@@ -3,13 +3,13 @@ import { checkOnboardingEvent, setAppInit, setUserSubscribedNotification } from 
 
 type Store = {
   isAppInit: boolean;
-  isCheckOnboarding: boolean;
+  isOnboardingChecked: boolean;
   isUserSubscribedNotification: boolean;
 };
 
 export const $main = createStore<Store>({
   isAppInit: false,
-  isCheckOnboarding: false,
+  isOnboardingChecked: false,
   isUserSubscribedNotification: false,
 })
   .on(setAppInit, (state, isAppInit) => ({
@@ -18,7 +18,7 @@ export const $main = createStore<Store>({
   }))
   .on(checkOnboardingEvent, state => ({
     ...state,
-    isCheckTraining: true,
+    isOnboardingChecked: true,
   }))
   .on(setUserSubscribedNotification, (state, isUserSubscribedNotification) => ({
     ...state,

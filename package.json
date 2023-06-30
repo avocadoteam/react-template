@@ -14,15 +14,15 @@
   "dependencies": {
     "@blumjs/bridge": "^1.0.3",
     "@blumjs/hooks": "^1.1.4",
-    "@blumjs/router": "^7.9.4",
+    "@blumjs/router": "^7.10.0",
     "@blumjs/utils": "^1.0.4",
-    "@vanilla-extract/css": "^1.11.0",
+    "@vanilla-extract/css": "^1.12.0",
     "@vanilla-extract/recipes": "^0.4.0",
-    "@vanilla-extract/sprinkles": "^1.6.0",
-    "@vkontakte/icons": "^2.36.0",
-    "@vkontakte/vk-bridge": "^2.7.4",
+    "@vanilla-extract/sprinkles": "^1.6.1",
+    "@vkontakte/icons": "^2.46.0",
+    "@vkontakte/vk-bridge": "^2.8.2",
     "@vkontakte/vk-miniapps-deploy": "^0.1.5",
-    "@vkontakte/vkui": "^5.4.2",
+    "@vkontakte/vkui": "^5.5.5",
     "axios": "^1.4.0",
     "effector": "^22.8.6",
     "effector-react": "^22.5.3",
@@ -32,7 +32,7 @@
     "react": "^18.2.0",
     "react-device-detect": "^2.2.3",
     "react-dom": "^18.2.0",
-    "socket.io-client": "^4.6.1"
+    "socket.io-client": "^4.7.1"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.5",

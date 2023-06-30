@@ -1,5 +1,5 @@
 import { useAppInit, useUI } from '@core/hooks';
-import { PromoBanner, useNativeBanner } from '@ui/ads';
+import { useNativeBanner, usePromoBanner } from '@ui/ads';
 import { AppLayout } from '@ui/app-layout';
 import { Snackbars } from '@ui/snackbars';
 import '@ui/theme/fonts.css';
@@ -8,6 +8,7 @@ import '@vkontakte/vkui/dist/vkui.css';
 
 export const App = () => {
   useAppInit();
+  usePromoBanner();
   useNativeBanner();
   const { appearance } = useUI();
 
@@ -16,7 +17,6 @@ export const App = () => {
       <AdaptivityProvider>
         <AppLayout />
         <Snackbars />
-        <PromoBanner />
       </AdaptivityProvider>
     </ConfigProvider>
   );

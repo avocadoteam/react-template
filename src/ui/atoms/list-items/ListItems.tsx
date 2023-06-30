@@ -4,23 +4,23 @@ import { ComponentProps, forwardRef, LegacyRef, useEffect } from 'react';
 import { listItems } from './ListItems.css';
 
 type Props = {
-  height: number;
+  height: number | 'auto' | string;
   isShowSpinner: boolean;
-  onListEndReached: () => void;
+  onEndListReach: () => void;
   items: React.ReactNode[];
 } & ComponentProps<'div'>;
 
 export const ListItems = forwardRef(
   (
-    { style, className, height, isShowSpinner, onListEndReached, items, ...props }: Props,
+    { style, className, height, isShowSpinner, onEndListReach, items, ...props }: Props,
     listRef: LegacyRef<HTMLDivElement>,
   ) => {
     const { entry, ref } = useIntersectionObserver({});
     useEffect(() => {
       if (entry?.isIntersecting) {
-        onListEndReached();
+        onEndListReach();
       }
-    }, [entry?.isIntersecting, onListEndReached]);
+    }, [entry?.isIntersecting, onEndListReach]);
 
     return (
       <div {...props} ref={listRef} className={`${listItems} ${className}`} style={{ height, ...style }}>

@@ -1,6 +1,6 @@
 import { createGlobalTheme, createTheme, createThemeContract, globalStyle } from '@vanilla-extract/css';
 import { recipe } from '@vanilla-extract/recipes';
-import { palette } from './palette';
+import { colors, palette } from './palette';
 
 const root = createGlobalTheme('#root', {
   space: {
@@ -63,84 +63,51 @@ const elementsContract = createThemeContract({
     [900]: null,
   },
 });
+const theme = (type: keyof typeof palette) => {
+  const p = palette[type];
 
-export const lightTheme = createTheme(elementsContract, {
-  panelBackground: 'rgb(249, 249, 249)',
-  modalBackground: 'rgb(249, 249, 249)',
-  cardBackground: 'rgb(249, 249, 249)',
-  customDivBg: 'rgb(255, 255, 255)',
-  btn: {
-    primary: {
-      background: 'rgb(239, 239, 239)',
-      color: 'rgb(56, 56, 56)',
+  return createTheme(elementsContract, {
+    panelBackground: p.default,
+    modalBackground: p.default,
+    cardBackground: p.default,
+    customDivBg: p.deep,
+    btn: {
+      transparent: {
+        background: colors.transparent,
+        color: colors.gray[114],
+      },
+      primary: {
+        background: colors.gray[239],
+        color: colors.gray[56],
+      },
+      negative: {
+        background: colors.negative,
+        color: colors.negativeLight,
+      },
     },
-    transparent: {
-      background: 'transparent',
-      color: 'rgb(115, 114, 114)',
+    tab: {
+      active: {
+        background: colors.gray[239],
+        color: colors.gray[56],
+      },
+      default: {
+        background: colors.transparent,
+        color: colors.gray[177],
+      },
     },
-    negative: {
-      background: 'rgba(230, 70, 70, 0.1)',
-      color: 'rgb(230, 70, 70)',
+    snackbar: {
+      color: p.gray[600],
+      background: p.deep,
+      success: colors.nice,
+      info: colors.icon,
+      error: colors.negative,
     },
-  },
-  tab: {
-    active: {
-      background: 'rgb(239, 239, 239)',
-      color: 'rgb(56, 56, 56)',
-    },
-    default: {
-      background: 'transparent',
-      color: 'rgb(177, 177, 177)',
-    },
-  },
-  snackbar: {
-    color: palette.light.gray[600],
-    background: 'rgba(255, 255, 255)',
-    success: 'rgb(75, 179, 75)',
-    info: 'rgb(38, 136, 235)',
-    error: 'rgb(230, 70, 70)',
-  },
-  gray: palette.light.gray,
-});
+    gray: p.gray,
+  });
+};
 
-export const darkTheme = createTheme(elementsContract, {
-  panelBackground: 'rgb(36, 36, 36)',
-  modalBackground: 'rgb(36, 36, 36)',
-  cardBackground: 'rgb(36, 36, 36)',
-  customDivBg: 'rgb(25, 25, 26)',
-  btn: {
-    primary: {
-      background: 'rgb(239, 239, 239)',
-      color: 'rgb(56, 56, 56)',
-    },
-    transparent: {
-      background: 'transparent',
-      color: 'rgb(115, 114, 114)',
-    },
-    negative: {
-      background: 'rgba(230, 70, 70, 0.1)',
-      color: 'rgb(230, 70, 70)',
-    },
-  },
-  tab: {
-    active: {
-      background: 'rgb(83, 83, 83)',
-      color: 'rgb(243, 243, 243)',
-    },
-    default: {
-      background: 'transparent',
-      color: 'rgb(177, 177, 177)',
-    },
-  },
-  snackbar: {
-    color: palette.dark.gray[600],
-    background: 'rgb(25, 25, 26)',
-    success: 'rgb(75, 179, 75)',
-    info: 'rgb(38, 136, 235)',
-    error: 'rgb(230, 70, 70)',
-  },
-  gray: palette.dark.gray,
-});
+export const lightTheme = theme('light');
+export const darkTheme = theme('dark');
 
 export const vars = { all: elementsContract, ...root };
 
@@ -164,8 +131,9 @@ globalStyle(`.vkuiSearch`, {
   background: important('transparent'),
   marginTop: '1rem',
 } as any);
-globalStyle(`.vkuiPanel__in`, {
+globalStyle(`.vkuiPanel__in, .vkuiPanelHeader__in, .vkuiPanelHeader__in::after`, {
   backgroundColor: important(vars.all.panelBackground),
+  border: important('none'),
 } as any);
 globalStyle(`.vkuiModalPage__in`, {
   backgroundColor: important(vars.all.modalBackground),
