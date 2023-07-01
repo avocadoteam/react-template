@@ -12,6 +12,9 @@ export const CustomLayout = memo<Props>(({ id, children }) => {
   const handleSwipeBack = useCallback(() => {
     back();
   }, []);
+  if (!children) {
+    return <></>;
+  }
 
   return (
     <View onSwipeBack={handleSwipeBack} activePanel={activePanel as keyof typeof PanelRoute} id={id}>

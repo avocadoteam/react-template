@@ -1,37 +1,15 @@
-import { keyframes } from '@vanilla-extract/css';
 import { recipe } from '@vanilla-extract/recipes';
-
-const click = keyframes({
-  '0%': {
-    opacity: 1,
-    transform: 'translateY(0px)',
-  },
-  '25%': {
-    opacity: 0.7,
-    transform: 'translateY(1px)',
-  },
-  '50%': {
-    opacity: 0.4,
-    transform: 'translateY(2px)',
-  },
-  '75%': {
-    opacity: 0.7,
-    transform: 'translateY(1px)',
-  },
-  '100%': {
-    opacity: 1,
-    transform: 'translateY(0px)',
-  },
-});
 
 export const clickableDiv = recipe({
   variants: {
     isMobile: {
       true: {
+        transition: 'opacity 1s',
+        opacity: 1,
         selectors: {
           '&:active': {
-            animationName: click,
-            animationDuration: '400ms',
+            opacity: 0.3,
+            transition: 'opacity 0s',
           },
         },
       },

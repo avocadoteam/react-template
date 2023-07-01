@@ -131,9 +131,8 @@ globalStyle(`.vkuiSearch`, {
   background: important('transparent'),
   marginTop: '1rem',
 } as any);
-globalStyle(`.vkuiPanel__in, .vkuiPanelHeader__in, .vkuiPanelHeader__in::after`, {
+globalStyle(`.vkuiPanel__in`, {
   backgroundColor: important(vars.all.panelBackground),
-  border: important('none'),
 } as any);
 globalStyle(`.vkuiModalPage__in`, {
   backgroundColor: important(vars.all.modalBackground),
