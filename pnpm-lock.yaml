@@ -12,8 +12,8 @@ dependencies:
     specifier: ^1.1.4
     version: 1.1.4(react-dom@18.2.0)(react@18.2.0)
   '@blumjs/router':
-    specifier: ^7.10.0
-    version: 7.10.0(react-dom@18.2.0)(react@18.2.0)
+    specifier: ^7.11.0
+    version: 7.11.0(react-dom@18.2.0)(react@18.2.0)
   '@blumjs/utils':
     specifier: ^1.0.4
     version: 1.0.4
@@ -1417,8 +1417,8 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /@blumjs/router@7.10.0(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-6uYBa+PLJmuB+g6QyI775B/kGm6wqku4qBi6r2CP5e3Jsjui29gzhYjKUK5yWJmCGtlJExvGyGtpm3JJpS8Z2w==}
+  /@blumjs/router@7.11.0(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-usYyeUDrgQCmglvujAG/MWzin66qDxFZy4bfEPENIHtRGXTDeDkjGXHELvoad+cHVD3DhBcLj2VG1xedu/UjXg==}
     peerDependencies:
       react: '>=18.0.0'
       react-dom: '>=18.0.0'
