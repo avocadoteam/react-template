@@ -1,6 +1,6 @@
 import { useTimeout } from '@blumjs/hooks';
 import { useUI } from '@core/hooks';
-import { setSnackbar } from '@core/modules/ui';
+import { uiEvents } from '@core/modules/ui';
 import { vars } from '@ui/theme';
 import { typography } from '@ui/theme/typography.css';
 import { Icon28CheckCircleOutline, Icon28ErrorCircleOutline, Icon28MessageOutline } from '@vkontakte/icons';
@@ -13,7 +13,7 @@ const duration = 3500;
 export const Snackbars = memo(() => {
   const { snackbar } = useUI();
   const handleClose = useCallback(() => {
-    setSnackbar(null);
+    uiEvents.setSnackbar(null);
   }, []);
   useTimeout(handleClose, duration, [snackbar]);
 

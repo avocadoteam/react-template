@@ -1,6 +1,6 @@
 import { back } from '@blumjs/router';
 import { ModalRoute } from '@core/models';
-import { checkOnboardingEffect } from '@core/modules/main';
+import { mainEffects } from '@core/modules/main';
 import { CustomButton, CustomModalPage } from '@ui/atoms';
 import { typography } from '@ui/theme/typography.css';
 import { memo, useCallback } from 'react';
@@ -12,7 +12,7 @@ type Props = {
 
 export const OnboardingModal = memo<Props>(({ id }) => {
   const handleClose = useCallback(() => {
-    checkOnboardingEffect();
+    mainEffects.checkOnboarding();
     back();
   }, []);
 

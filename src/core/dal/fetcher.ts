@@ -1,6 +1,6 @@
 import { fetcherBaseUrl, vkQuery } from '@core/constants';
 import { ApiRequest } from '@core/models';
-import { setSnackbar } from '@core/modules/ui';
+import { uiEvents } from '@core/modules/ui';
 import axios from 'axios';
 
 export const AX = axios.create({
@@ -36,7 +36,7 @@ export const createRequest = async <ResponseData, ReturnData>(
     }
     return successData ? successData : !!transformation ? transformation(res) : res;
   } catch (e: any) {
-    setSnackbar({
+    uiEvents.setSnackbar({
       type: 'error',
       message: (e as object).hasOwnProperty('message')
         ? //@ts-ignore

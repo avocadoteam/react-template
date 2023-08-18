@@ -1,5 +1,8 @@
 import { createEvent } from 'effector';
 
-export const checkOnboardingEvent = createEvent();
-export const setAppInit = createEvent<boolean>();
-export const setUserSubscribedNotification = createEvent<boolean>();
+export const mainEvents = {
+  setDefaultState: createEvent(),
+  checkOnboarding: createEvent(),
+  setAppInit: createEvent<boolean>(),
+  setUserSubscribedNotification: createEvent<boolean>(),
+};

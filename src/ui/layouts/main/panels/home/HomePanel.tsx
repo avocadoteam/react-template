@@ -1,8 +1,8 @@
 import { shareLink } from '@blumjs/bridge';
 import { setActiveModal } from '@blumjs/router';
 import { ModalRoute, PanelRoute } from '@core/models';
-import { $main, unsubscribeNotification } from '@core/modules/main';
-import { setSnackbar } from '@core/modules/ui';
+import { $main, mainEffects } from '@core/modules/main';
+import { uiEvents } from '@core/modules/ui';
 import { CustomPanel } from '@ui/atoms';
 import { DivWithHeader } from '@ui/bricks';
 import {
@@ -23,7 +23,7 @@ type Props = {
 export const HomePanel = memo<Props>(({ id }) => {
   const { isUserSubscribedNotification } = useStore($main);
   const showSnackbar = useCallback(() => {
-    setSnackbar({ type: 'info', message: 'Snackbar showed' });
+    uiEvents.setSnackbar({ type: 'info', message: 'Snackbar showed' });
   }, []);
   const share = useCallback(() => {
     shareLink('https://yandex.ru/search/?clid=2285101&text=google&lr=2');
@@ -33,7 +33,7 @@ export const HomePanel = memo<Props>(({ id }) => {
   }, []);
   const handleNotification = useCallback(() => {
     if (isUserSubscribedNotification) {
-      unsubscribeNotification();
+      mainEffects.unsubscribeNotification();
       return;
     }
     setActiveModal(ModalRoute.Notifications);

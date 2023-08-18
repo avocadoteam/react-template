@@ -1,6 +1,6 @@
 import { back } from '@blumjs/router';
 import { ModalRoute } from '@core/models';
-import { subscribeNotification } from '@core/modules/main';
+import { mainEffects } from '@core/modules/main';
 import { CustomButton, CustomModalCard } from '@ui/atoms';
 import { typography } from '@ui/theme';
 import { Icon56NotificationOutline } from '@vkontakte/icons';
@@ -12,7 +12,7 @@ type Props = {
 
 export const NotificationsCard = memo<Props>(({ id }) => {
   const handleClick = useCallback(() => {
-    subscribeNotification().then(() => {
+    mainEffects.subscribeNotification().then(() => {
       back();
     });
   }, []);

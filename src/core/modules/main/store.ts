@@ -1,26 +1,32 @@
 import { createStore } from 'effector';
-import { checkOnboardingEvent, setAppInit, setUserSubscribedNotification } from './events';
+import { mainEvents } from './events';
 
-type Store = {
+export type Store = {
   isAppInit: boolean;
   isOnboardingChecked: boolean;
   isUserSubscribedNotification: boolean;
 };
-
-export const $main = createStore<Store>({
+const defaultStore: Store = {
   isAppInit: false,
   isOnboardingChecked: false,
   isUserSubscribedNotification: false,
+};
+
+export const $main = createStore<Store>({
+  ...defaultStore,
 })
-  .on(setAppInit, (state, isAppInit) => ({
+  .on(mainEvents.setDefaultState, () => ({
+    ...defaultStore,
+  }))
+  .on(mainEvents.setAppInit, (state, isAppInit) => ({
     ...state,
     isAppInit,
   }))
-  .on(checkOnboardingEvent, state => ({
+  .on(mainEvents.checkOnboarding, state => ({
     ...state,
     isOnboardingChecked: true,
   }))
-  .on(setUserSubscribedNotification, (state, isUserSubscribedNotification) => ({
+  .on(mainEvents.setUserSubscribedNotification, (state, isUserSubscribedNotification) => ({
     ...state,
     isUserSubscribedNotification,
   }));
