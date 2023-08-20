@@ -8,7 +8,7 @@ export const useConnection = () => {
   const handleOffline = useCallback(() => {
     setActiveViewPanel({ view: ViewRoute.ConnectionError, panel: PanelRoute.Offline });
     _setActiveModal(null);
-    _setActivePopout({ popout: null, options: null });
+    _setActivePopout(null);
   }, []);
   const handleOnline = useCallback(() => {
     back();
